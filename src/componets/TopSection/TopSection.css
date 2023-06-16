@@ -1,0 +1,6 @@
+.wrapper {
+  background: url(../../../public/mask.svg) center no-repeat, fixed;
+  background-size: cover;
+  min-height: 100vh;
+  height: 900px;
+}

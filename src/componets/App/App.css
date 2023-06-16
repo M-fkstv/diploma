@@ -1,0 +1,7 @@
+.backGround {
+  background: url('../Icons/mask.jpg') no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  height: 900px;
+}
