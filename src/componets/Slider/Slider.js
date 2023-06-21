@@ -20,15 +20,29 @@ export const Slider = ({ className, data }) => {
       spaceBetween={16}
       slidesPerView={4}
       breakpoints={{
-        1320: {
-          slidesPerView: 4,
-        },
-        960: {
-          slidesPerView: 3,
-        },
+        // mobile + tablet - 320-990
         320: {
+          slidesPerView: 1,
+        },
+        641: {
           slidesPerView: 2,
         },
+        // desktop >= 991
+        991: {
+          slidesPerView: 3,
+        },
+        1120: {
+          slidesPerView: 4,
+        },
+        // 960: {
+        //   slidesPerView: 3,
+        // },
+        // 640: {
+        //   slidesPerView: 2,
+        // },
+        // 560: {
+        //   slidesPerView: 1,
+        // },
       }}
       navigation={{
         nextEl: '#nextEl',

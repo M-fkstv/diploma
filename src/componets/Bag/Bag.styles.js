@@ -4,9 +4,10 @@ const bagStyles = () => ({
   root: {
     margin: '150px auto',
     width: '50%',
-    aspectRatio: '1/1',
+    // aspectRatio: '1/1',
     '@media (max-width: 800px)': {
       width: '80%',
+      aspectRatio: '1/1',
     },
   },
   title: {

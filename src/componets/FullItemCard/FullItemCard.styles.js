@@ -15,7 +15,8 @@ const fullItemCardStyles = () => ({
     width: '70%',
     margin: 0,
     '@media (max-width: 800px)': {
-      // margin: '0 auto',
+      width: '100%',
+      padding: '0 16px 0 16px',
     },
   },
 
@@ -25,6 +26,9 @@ const fullItemCardStyles = () => ({
     fontSize: '1.25rem',
     '& *': {
       marginLeft: 0,
+    },
+    '@media (max-width: 800px)': {
+      width: '100%',
     },
   },
 
@@ -88,6 +92,9 @@ const fullItemCardStyles = () => ({
   buttonsBlock: {
     display: 'flex',
     marginBottom: 30,
+    '@media (max-width: 800px)': {
+      width: '40%',
+    },
   },
 
   bagButton: {
@@ -96,6 +103,9 @@ const fullItemCardStyles = () => ({
     color: '#ffffff',
     backgroundColor: '#000000',
     fontSize: '1.5rem',
+    '@media (max-width: 800px)': {
+      fontSize: '1rem',
+    },
   },
 
   wishButton: {

@@ -14,11 +14,13 @@ import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { useSalesStyles } from '../Sales/sales.styles';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
+import { useButtonStyles } from '../Button/Button.styles';
 
 export const discount = '"25%"';
 export const ItemCard = (item) => {
   const classes = useSalesStyles();
   const iconClasses = useIconStyles();
+  const buttonClasses = useButtonStyles();
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
@@ -46,15 +48,15 @@ export const ItemCard = (item) => {
         />{' '}
         <div className={classes.hover}></div>
       </Link>
-      <button className={classes.hoverButton} onClick={addToBag}>
+      <button className={buttonClasses.hoverButton} onClick={addToBag}>
         ADD TO BAG
       </button>
 
       <IconButton
         aria-label="add to favorites"
-        className={classes.wishlistButton}
+        className={buttonClasses.wishlistButton}
         onClick={addToFavorites}>
-        <FavoriteBorderIcon fontSize="large" sx={{ fill: 'white' }} />
+        <Icon id="#like" className={iconClasses.like} />
       </IconButton>
       {/*<button className={classes.wishlistButton} onClick={addToFavorites}>*/}
       {/*  /!*<Icon id="#like" className={iconClasses.like} />*!/*/}

@@ -52,6 +52,39 @@ const buttonStyles = (theme) => ({
       transition: 'all 1s ease-in-out',
     },
   },
+
+  wishlistButton: {
+    position: 'absolute',
+    top: '5%',
+    left: '80%',
+    cursor: 'pointer',
+    backgroundColor: 'transparent',
+    border: 0,
+    '&:hover  ': {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+  },
+
+  hoverButton: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: 48,
+    width: 160,
+    height: 48,
+    textAlign: 'center',
+    fontSize: 18,
+    opacity: 0,
+    cursor: 'pointer',
+    '&:hover': {
+      opacity: 1,
+      transition: 'opacity 200ms linear',
+    },
+    '&:active': {
+      scale: 0.8,
+    },
+  },
 });
 
 export const useButtonStyles = createUseStyles(buttonStyles);

@@ -52,6 +52,7 @@ export const categoriesStyles = {
   },
   cardWrapper: {
     maxWidth: 1240,
+    rowGap: 16,
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',

@@ -67,7 +67,24 @@ export const Bag = () => {
                   {dollar.format(item.price.value / 100)}
                 </p>
                 <p>COLOR: {item.color.name.toUpperCase()}</p>
-                <p>SIZE: {item.availableSizes}</p>
+                <p>
+                  SIZE:
+                  <select name="sizes" style={{ border: 0, fontSize: '1rem' }}>
+                    {item.availableSizes
+                      .join('')
+                      .split(',')
+                      .map((item, index) => {
+                        return (
+                          <option
+                            style={{ fontSize: '1rem' }}
+                            key={index}
+                            value={item}>
+                            {item}
+                          </option>
+                        );
+                      })}
+                  </select>
+                </p>
                 <p>quantity</p>
               </div>
             </div>

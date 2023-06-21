@@ -10,9 +10,12 @@ import { setBag } from '../../store/slices/bag.slice';
 import { dollar } from '../../constants/toDollar';
 import { useCategoryItemStyles } from './CategoryItem.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
+import IconButton from '@mui/material/IconButton';
+import { useButtonStyles } from '../Button/Button.styles';
 export const CategoryItem = (item) => {
   const classes = useCategoryItemStyles();
   const iconClasses = useIconStyles();
+  const buttonClasses = useButtonStyles();
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
@@ -38,14 +41,17 @@ export const CategoryItem = (item) => {
           alt={item.name}
         />
         <div className={classes.hover}>
-          <button className={classes.hoverButton} onClick={addToBag}>
+          <button className={buttonClasses.hoverButton} onClick={addToBag}>
             ADD TO BAG
           </button>
         </div>
       </Link>
-      <button className={classes.wishlistButton} onClick={addToFavorites}>
+      <IconButton
+        aria-label="add to favorites"
+        className={buttonClasses.wishlistButton}
+        onClick={addToFavorites}>
         <Icon id="#like" className={iconClasses.like} />
-      </button>
+      </IconButton>
       <p className={classes.price}>{dollar.format(item.price.value / 100)}</p>
     </div>
   );

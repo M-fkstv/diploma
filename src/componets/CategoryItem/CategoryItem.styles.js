@@ -27,32 +27,6 @@ const categoryItemStyles = () => ({
       transition: 'opacity 200ms linear',
     },
   },
-
-  hoverButton: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: 48,
-    width: 160,
-    height: 48,
-    textAlign: 'center',
-    fontSize: 18,
-    opacity: 0,
-    cursor: 'pointer',
-    '&:hover': {
-      opacity: 1,
-      transition: 'opacity 200ms linear',
-    },
-  },
-  wishlistButton: {
-    position: 'absolute',
-    top: '5%',
-    left: '80%',
-    cursor: 'pointer',
-    backgroundColor: 'transparent',
-    border: 0,
-  },
 });
 
 export const useCategoryItemStyles = createUseStyles(categoryItemStyles);

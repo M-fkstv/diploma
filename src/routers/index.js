@@ -24,7 +24,7 @@ export const router = createBrowserRouter(
       <Route element={<Wrapper />}>
         <Route path="/login" element={<LogInPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/" element={<App />} />
+        <Route index element={<App />} />
         <Route path="/bag" element={<BagPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         {/*<Route path="/wishlist" element={<Wishlist />} />*/}

@@ -57,7 +57,7 @@ const headerStyles = (theme) => ({
     textDecoration: 'none',
     color: theme.palette.primary.mainText,
     fontSize: 18,
-    '@media (max-width: 600px)': {
+    '@media (max-width: 1200px)': {
       color: '#000',
     },
     // '& svg ': {
