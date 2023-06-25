@@ -12,9 +12,6 @@ import { Footer } from '../Footer';
 import { SortByCategory } from '../CategorySort';
 import { SearchRes } from '../CategorySort/SearchRes';
 import { TopSection } from '../TopSection';
-import DrawerAppBar from '../Burger/Burger';
-import SimpleAccordion from '../MuiAccordion/MuiAccordion';
-import { MyComponent } from '../../test';
 
 export const App = () => {
   const category = useSelector((state) => state.category);

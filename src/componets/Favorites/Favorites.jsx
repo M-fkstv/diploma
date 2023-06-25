@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import { Button } from '../Button';
 import { Icon } from '../Icons/Icon';
 
@@ -18,8 +18,8 @@ import { useIndexStyles } from '../../../index.styles';
 
 export const Favorites = () => {
   const classes = useFavoritesStyles();
-  const indClasses = useIndexStyles();
   const iconClasses = useIconStyles();
+  const indexClasses = useIndexStyles();
   const favoritesState = useSelector((state) => state.favorites);
   const bagState = useSelector((state) => state.bag);
   const favSumm = favoritesState.reduce((acc, currentValue) => {
@@ -28,13 +28,13 @@ export const Favorites = () => {
   }, 0);
   const dispatch = useDispatch();
 
-  const deleteFromFavorites = (item) => {
+  const handleDeleteFromFavorites = (item) => {
     const toDispatch = favoritesState.filter(
       (bagItem) => bagItem.id !== item.id,
     );
     dispatch(removeFavorites(toDispatch));
   };
-  const addToBag = (item) => {
+  const handleAddToBag = (item) => {
     if (!bagState.find((bagItem) => bagItem.id === item.id)) {
       dispatch(setBag(item));
       dispatch(
@@ -44,7 +44,7 @@ export const Favorites = () => {
       );
     }
   };
-  const allToBag = () => {
+  const handleAllToBag = () => {
     favoritesState.forEach((item) => {
       dispatch(setBag(item));
     });
@@ -61,12 +61,15 @@ export const Favorites = () => {
         return (
           <div key={index} className={classes.cardWrapper}>
             <div className={classes.card}>
+              {/* TODO: link to item page */}
+
               <img
                 className={classes.cardImage}
                 id={item.id}
                 src={item.images[0]}
                 alt={item.name}
               />
+
               <div className={classes.cardInfo}>
                 <p>{item.name}</p>
                 <p>
@@ -97,10 +100,12 @@ export const Favorites = () => {
             </div>
             <button
               className={classes.removeButton}
-              onClick={() => deleteFromFavorites(item)}>
+              onClick={() => handleDeleteFromFavorites(item)}>
               REMOVE
             </button>
-            <button className={classes.addToBag} onClick={() => addToBag(item)}>
+            <button
+              className={classes.addToBag}
+              onClick={() => handleAddToBag(item)}>
               ADD TO BAG
             </button>
             <hr />
@@ -112,7 +117,7 @@ export const Favorites = () => {
         <Button
           title={'ALL TO BAG'}
           className={classes.favButton}
-          onClick={allToBag}
+          onClick={handleAllToBag}
         />
         <div>
           <Icon id="#visa" className={iconClasses.payment} />

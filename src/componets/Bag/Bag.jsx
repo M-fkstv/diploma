@@ -9,7 +9,6 @@ import { useSendOrderMutation } from '../../services/bagAPI';
 
 import { useBagStyles } from './Bag.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
-import { useIndexStyles } from '../../../index.styles';
 
 export const Bag = () => {
   const [response, setResponse] = useState('');
@@ -23,7 +22,6 @@ export const Bag = () => {
   const [sendOrder] = useSendOrderMutation();
 
   const classes = useBagStyles();
-  const indClasses = useIndexStyles();
   const iconClasses = useIconStyles();
 
   const deleteFromBag = (item) => {

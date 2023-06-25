@@ -33,7 +33,7 @@ export const CategoryItem = (item) => {
   };
   return (
     <div className={classes.itemWrapper}>
-      <Link to={`item/:id${item.id}`} state={item}>
+      <Link to={`item/:${item.id}`} state={item}>
         <img
           className={classes.examplesIcon}
           id={item.id}

@@ -2,9 +2,18 @@ import { createUseStyles } from 'react-jss';
 
 export const useSliderStyles = createUseStyles({
   wrapper: {
+    display: 'flex',
     position: 'relative',
     margin: ' 0 auto',
-    maxWidth: 1232,
+    maxWidth: 1240,
+    '@media (0px <= width <= 960px)': {
+      // margin: '0 24px',
+      maxWidth: 850,
+    },
+    '@media (961px <= width <= 1200px)': {
+      // margin: '0 24px',
+      maxWidth: 960,
+    },
   },
   buttonNext: {
     position: 'absolute',
@@ -40,6 +49,9 @@ export const useSliderStyles = createUseStyles({
       left: '35%',
       zIndex: 2,
       transform: 'rotate(235deg) skew(20deg)',
+    },
+    swiperButtonDisabled: {
+      display: 'none',
     },
   },
 
@@ -78,5 +90,9 @@ export const useSliderStyles = createUseStyles({
       zIndex: 100,
       transform: 'rotate(55deg) skew(20deg)',
     },
+    // composes: '$swiper-button-disabled',
+  },
+  swiperButtonDisabled: {
+    display: 'none',
   },
 });

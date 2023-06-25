@@ -7,15 +7,16 @@ export const salesStyles = () => ({
     // backgroundColor: theme.palette.primary.backgroundColor,
     paddingTop: 120,
     paddingBottom: 120,
-  },
+    '@media (max-width: 1200px)': {},
 
-  sectionTitle: {
-    position: 'relative',
-    textAlign: 'center',
-    fontSize: 40,
-    fontWeight: 500,
-    margin: '0 auto 106px',
-    // color: theme.palette.primary.sectionTitletext,
+    sectionTitle: {
+      position: 'relative',
+      textAlign: 'center',
+      fontSize: 40,
+      fontWeight: 500,
+      margin: '0 auto 106px',
+      // color: theme.palette.primary.sectionTitletext,
+    },
   },
 
   examples: {
@@ -26,11 +27,7 @@ export const salesStyles = () => ({
     justifyContent: 'center',
     margin: '106px auto 0',
     flexWrap: 'wrap',
-    '@media (max-width: 360px)': {
-      padding: 12,
-    },
   },
-
   hover: {
     position: 'absolute',
     top: 0,
@@ -45,29 +42,8 @@ export const salesStyles = () => ({
     },
   },
 
-  // hoverButton: {
-  //   position: 'absolute',
-  //   top: '50%',
-  //   left: '50%',
-  //   transform: 'translate(-50%, -50%)',
-  //   borderRadius: 48,
-  //   width: 160,
-  //   height: 48,
-  //   textAlign: 'center',
-  //   fontSize: 18,
-  //   opacity: 0,
-  //   cursor: 'pointer',
-  //   '&:hover': {
-  //     opacity: 1,
-  //     transition: 'opacity 200ms linear',
-  //   },
-  //   '&:active': {
-  //     scale: 0.8,
-  //   },
-  // },
-
   examplesIcons: {
-    // width: 300,
+    width: 296,
     // height: 400,
     margin: '0 auto',
     overflow: 'hidden',
@@ -85,9 +61,13 @@ export const salesStyles = () => ({
   },
 
   examplesIcon: {
+    display: 'block',
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
     position: 'relative',
-    width: 296,
-    aspectRatio: '2/3',
+    // width: 296,
+    // // aspectRatio: '2/3',
   },
 
   description: {

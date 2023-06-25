@@ -20,7 +20,6 @@ const indexStyles = () => ({
       paddingTop: 20,
     },
     li: {
-      marginBottom: 10,
       listStyle: 'none',
     },
   },

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import IconButton from '@mui/material/IconButton';
+// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import { Icon } from '../Icons/Icon';
 
@@ -12,11 +14,10 @@ import { setBag } from '../../store/slices/bag.slice';
 
 import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { useSalesStyles } from '../Sales/sales.styles';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import IconButton from '@mui/material/IconButton';
 import { useButtonStyles } from '../Button/Button.styles';
 
 export const discount = '"25%"';
+
 export const ItemCard = (item) => {
   const classes = useSalesStyles();
   const iconClasses = useIconStyles();
@@ -24,13 +25,15 @@ export const ItemCard = (item) => {
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
-  const addToFavorites = (e) => {
+
+  const handleAddToFavorites = (e) => {
     e.preventDefault();
     if (!initFavState.find((favItem) => favItem.id === item.id)) {
       dispatch(setFavorites(item));
     }
   };
-  const addToBag = (e) => {
+
+  const handleAddToBag = (e) => {
     e.preventDefault();
     if (!initBagState.find((bagItem) => bagItem.id === item.id)) {
       dispatch(setBag(item));
@@ -48,20 +51,21 @@ export const ItemCard = (item) => {
         />{' '}
         <div className={classes.hover}></div>
       </Link>
-      <button className={buttonClasses.hoverButton} onClick={addToBag}>
+      <button className={buttonClasses.hoverButton} onClick={handleAddToBag}>
         ADD TO BAG
       </button>
 
       <IconButton
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
-        onClick={addToFavorites}>
+        onClick={handleAddToFavorites}>
         <Icon id="#like" className={iconClasses.like} />
       </IconButton>
       {/*<button className={classes.wishlistButton} onClick={addToFavorites}>*/}
       {/*  /!*<Icon id="#like" className={iconClasses.like} />*!/*/}
       {/*  <FavoriteBorderIcon fontSize="large" sx={{ fill: 'white' }} />*/}
       {/*</button>*/}
+
       <div className={classes.description}>
         <p className={classes.descriptionText}>
           {dollar.format(item.price.value / 100)}

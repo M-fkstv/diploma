@@ -4,7 +4,6 @@ const favoritesStyles = () => ({
   root: {
     margin: '150px auto',
     width: '50%',
-    aspectRatio: '1/1',
     '@media (max-width: 800px)': {
       width: '80%',
     },
@@ -31,8 +30,14 @@ const favoritesStyles = () => ({
     margin: '20px auto 100px auto',
   },
   cardImage: {
-    width: 'calc(100% / 14 * 6)',
+    width: 'calc(100% / 14 * 7)',
     margin: 0,
+    '@media (max-width: 800px)': {
+      width: '50%',
+    },
+    '@media (max-width: 600px)': {
+      width: '70%',
+    },
   },
   cardInfo: {
     marginLeft: 20,

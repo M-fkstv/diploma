@@ -17,7 +17,7 @@ import { Button } from '../Button';
 import { useButtonStyles } from '../Button/Button.styles';
 
 import DrawerAppBar from '../Burger/Burger';
-import { createSvgIcon } from '@mui/material';
+import { useLogOut } from '../../services/logOut';
 
 export const Header = () => {
   const theme = useTheme();
@@ -38,6 +38,7 @@ export const Header = () => {
     dispatch(clearSearchResult());
     navigate('/register');
   };
+  // const logOut = useLogOut();
 
   return (
     <header className={classes.root}>
@@ -60,7 +61,7 @@ export const Header = () => {
       <nav className={classes.menuRight}>
         <button
           onClick={() => searchRef.current.open()}
-          className={classes.headerBtn}>
+          className={buttonClasses.headerBtn}>
           <Icon id="#search" className={iconClasses.root} />
 
           <span>SEARCH</span>

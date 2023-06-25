@@ -7,10 +7,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import { Icon } from './componets/Icons/Icon';
+import { Icon } from '../Icons/Icon';
 import { Link } from 'react-router-dom';
-import { useFooterStyles } from './componets/Footer/footer.styles';
-import { useIconStyles } from './componets/Icons/Icon/Icon.style';
+import { useFooterStyles } from './footer.styles';
+import { useIconStyles } from '../Icons/Icon/Icon.style';
+import { useIndexStyles } from '../../../index.styles';
 
 const MyAccordion = ({ id, title, content }) => {
   const isWideScreen = useMediaQuery('(min-width:900px)');
@@ -53,9 +54,11 @@ const MyAccordion = ({ id, title, content }) => {
   );
 };
 
-export const MyComponent = () => {
+export const FooterContacts = () => {
   const iconClasses = useIconStyles();
   const classes = useFooterStyles();
+  const indexClasses = useIndexStyles();
+
   const data = [
     {
       title: 'CUSTOMER SERVICE',
@@ -100,8 +103,7 @@ export const MyComponent = () => {
       content: [
         'hello@modnikky.com',
         '+7 910 832 26XX',
-        'Visit us at Shalalaeva 23,',
-        'Bologoe, Russia',
+        'Visit us at Shalalaeva 23, Bologoe, Russia',
       ],
     },
   ];

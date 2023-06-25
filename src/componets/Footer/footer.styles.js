@@ -53,6 +53,7 @@ const footerStyles = () => ({
     margin: '60px auto',
     position: 'relative',
     width: 400,
+    maxWidth: 400,
   },
   signUpTextField: {
     width: '100%',

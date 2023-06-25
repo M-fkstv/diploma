@@ -7,7 +7,7 @@ import { useSubscriptionMutation } from '../../services/subscribeApi';
 
 import { useFooterStyles } from './footer.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
-import { MyComponent } from '../../test';
+import { FooterContacts, MyComponent } from './FooterContacts';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
@@ -44,7 +44,7 @@ export const Footer = () => {
           </div>
         )}
       </div>
-      <div></div>
+
       <div className={classes.body}>
         {/*<ul>*/}
         {/*  <li>*/}
@@ -102,7 +102,7 @@ export const Footer = () => {
         {/*    <br /> Bologoe, Russia*/}
         {/*  </li>*/}
         {/*</ul>*/}
-        <MyComponent />
+        <FooterContacts />
       </div>
     </footer>
   );

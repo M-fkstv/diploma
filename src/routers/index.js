@@ -27,9 +27,6 @@ export const router = createBrowserRouter(
         <Route index element={<App />} />
         <Route path="/bag" element={<BagPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        {/*<Route path="/wishlist" element={<Wishlist />} />*/}
-        {/*<Route index element={<App />} />*/}
-
         <Route
           path="/item/:id"
           element={

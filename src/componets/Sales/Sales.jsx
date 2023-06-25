@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Slider } from '../Slider';
 import { SliderButton } from '../SliderButton';
@@ -15,15 +15,16 @@ export const Sales = () => {
   const sliderClasses = useSliderStyles();
   const indexClasses = useIndexStyles();
   const { data, isLoading, isSuccess } = useGetSalesQuery();
+  const [inform, setInform] = useState();
 
-  let inform;
-
-  localStorage.getItem('data')
-    ? (inform = JSON.parse(localStorage.getItem('data')))
-    : (inform = data);
-  if (isSuccess) {
-    localStorage.setItem('data', JSON.stringify(data));
-  }
+  useEffect(() => {
+    localStorage.getItem('data')
+      ? setInform(JSON.parse(localStorage.getItem('data')))
+      : setInform(data);
+    if (isSuccess) {
+      localStorage.setItem('data', JSON.stringify(data));
+    }
+  }, [data, isSuccess]);
 
   if (isLoading) return <Loader loading={isLoading} />;
 
@@ -33,8 +34,8 @@ export const Sales = () => {
         <h2 className={indexClasses.sectionTitle}>#MODNIKKY Sale</h2>
 
         <div className={sliderClasses.wrapper}>
-          <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'} />
-          <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} />
+          {/* <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'} />
+          <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} /> */}
           <Slider className={classes.examples} data={inform} />
         </div>
       </section>

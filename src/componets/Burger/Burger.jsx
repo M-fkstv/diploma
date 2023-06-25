@@ -19,6 +19,7 @@ import { useTheme } from 'react-jss';
 import { useHeaderStyles } from '../Header/Header.styles';
 import { ModalMask } from '../Modal';
 import { useSelector } from 'react-redux';
+import { useLogOut } from '../../services/logOut';
 
 const drawerWidth = 240;
 // const navItems = [(<Link to="/" className={classes.menuLink}>NEW ARRIVALS</Link>),]
@@ -27,7 +28,7 @@ function DrawerAppBar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const theme = useTheme();
   const classes = useHeaderStyles(theme);
-  const buttonClasses = useButtonStyles();
+  const buttonClasses = useButtonStyles(theme);
   const iconClasses = useIconStyles();
   const searchRef = useRef(null);
   const bagState = useSelector((state) => state.bag);
@@ -103,6 +104,15 @@ function DrawerAppBar(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  // const logOut = () => {
+  //   dispatch(removeUser());
+  //   dispatch(clearBag());
+  //   dispatch(clearCategory());
+  //   dispatch(clearFavorites());
+  //   dispatch(clearSearchResult());
+  //   navigate('/register');
+  // };
+
   return (
     <>
       <IconButton
@@ -137,13 +147,5 @@ function DrawerAppBar(props) {
     </>
   );
 }
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default DrawerAppBar;
