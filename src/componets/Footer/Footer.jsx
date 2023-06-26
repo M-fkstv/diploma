@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { Icon } from '../Icons/Icon';
-
 import { useSubscriptionMutation } from '../../services/subscribeApi';
 
 import { useFooterStyles } from './footer.styles';
-import { useIconStyles } from '../Icons/Icon/Icon.style';
-import { FooterContacts, MyComponent } from './FooterContacts';
+import { FooterContacts } from './FooterContacts';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
   const classes = useFooterStyles();
-  const iconClasses = useIconStyles();
 
   const [subscription] = useSubscriptionMutation();
 
   const handleSubscription = async (e) => {
     e.preventDefault();
     const userEmail = new FormData(e.target).get('email');
-    const response = await subscription({ email: userEmail }).unwrap();
+    const response =
+      userEmail && (await subscription({ email: userEmail }).unwrap());
     setResponse(response.message);
   };
 

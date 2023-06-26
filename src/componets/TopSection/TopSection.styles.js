@@ -1,16 +1,18 @@
 import { createUseStyles } from 'react-jss';
 
 const topSectionStyles = () => ({
-  // wrapper: { //TODO fucking image
-  //   background: 'url("../../../public/mask.svg") no-repeat, fixed',
+  // wrapper: {
+  //   //TODO fucking image
+  //   background: 'url("../../../public/mask.png") no-repeat, fixed',
   //   backgroundSize: 'cover',
   //   minHeight: '100vh',
   //   height: 900,
   // },
 
   content: {
-    paddingTop: 600,
-    marginLeft: 150,
+    position: 'absolute',
+    left: 120,
+    bottom: 150,
     '& h1': {
       color: '#fff',
       fontSize: '2.5rem',
@@ -25,7 +27,18 @@ const topSectionStyles = () => ({
       letterSpacing: 2,
     },
     '@media (max-width: 840px)': {
-      display: 'none',
+      position: 'static',
+      marginTop: 40,
+      textAlign: 'center',
+      '& h1': {
+        color: '#000',
+        wordBreak: ' break-word',
+        // fontSize: '2.5rem',
+      },
+      '& p': {
+        color: '#000',
+        // fontSize: '1rem',
+      },
     },
   },
 });

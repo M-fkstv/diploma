@@ -38,7 +38,7 @@ export const Form = ({ title, onSubmit }) => {
         id={emailId}
         name="email"
         type="email"
-        placeholder="email"
+        placeholder="Email"
       />
 
       {/*<label htmlFor={passwordId}>Password</label>*/}
@@ -47,7 +47,7 @@ export const Form = ({ title, onSubmit }) => {
         id={passwordId}
         name="password"
         type="password"
-        placeholder="password"
+        placeholder="Password"
       />
 
       <div className={classes.checkboxWrapper}>

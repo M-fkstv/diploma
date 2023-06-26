@@ -34,7 +34,7 @@ export const SearchRes = ({ searchResult, title }) => {
       </div>
       {searchResult.length <= cardsQuantity || (
         <Button
-          className={btnClasses.formButton}
+          className={btnClasses.showMoreButton}
           title={'Show more'}
           onClick={() => handleShowMore()}
         />
@@ -45,4 +45,5 @@ export const SearchRes = ({ searchResult, title }) => {
 
 SearchRes.propTypes = {
   searchResult: PropTypes.array,
+  title: PropTypes.string,
 };

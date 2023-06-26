@@ -33,7 +33,7 @@ export const SortByCategory = () => {
       </div>
       {category.length <= cardsQuantity || (
         <Button
-          className={btnClasses.formButton}
+          className={btnClasses.showMoreButton}
           title={'Show more'}
           onClick={() => handleShowMore()}
         />

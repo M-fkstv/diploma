@@ -54,7 +54,12 @@ const footerStyles = () => ({
     position: 'relative',
     width: 400,
     maxWidth: 400,
+    '@media (max-width: 800px)': {
+      width: '100%',
+      padding: 16,
+    },
   },
+
   signUpTextField: {
     width: '100%',
     fontSize: '1.25rem',
@@ -74,7 +79,11 @@ const footerStyles = () => ({
     position: 'absolute',
     left: '100%',
     transform: 'translateX(-100%)',
+    '@media (max-width: 800px)': {
+      left: 'calc(100% - 16px)',
+    },
   },
+
   accordion: {
     boxShadow: 'none',
     margin: 0,

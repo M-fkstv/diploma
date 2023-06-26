@@ -21,20 +21,27 @@ const fullItemCardStyles = () => ({
   },
 
   cardInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 24,
     width: '30%',
     padding: '40px',
     fontSize: '1.25rem',
     '& *': {
       marginLeft: 0,
     },
+    '@media (max-width: 1200px)': {
+      fontSize: '1rem',
+      gap: 18,
+    },
     '@media (max-width: 800px)': {
+      padding: '0 0 0 32px',
       width: '100%',
+      gap: 12,
     },
   },
 
   priceInfo: {
-    marginTop: 20,
-    marginBottom: 30,
     fontSize: '1rem',
     '& :last-child': {
       marginTop: 10,
@@ -64,22 +71,22 @@ const fullItemCardStyles = () => ({
       fontSize: '1rem',
       color: '#8C8C8C',
     },
-    marginTop: 20,
-    marginBottom: 40,
   },
 
   sizeValue: {
     fontSize: '1rem',
     display: 'flex',
     paddingLeft: 0,
+    gap: 8,
     width: 'max-content',
-    // '& li &:hover': { // TODO hover
-    //   textDecoration: 'underline',
-    // },
     '& li': {
       textAlign: 'center',
       listStyle: 'none',
       width: 20,
+      '& a:hover': {
+        textDecoration: 'underline',
+        textUnderlineOffset: '4px', //??
+      },
     },
   },
 
@@ -91,9 +98,12 @@ const fullItemCardStyles = () => ({
 
   buttonsBlock: {
     display: 'flex',
-    marginBottom: 30,
+    width: '100%',
     '@media (max-width: 800px)': {
       width: '40%',
+    },
+    '@media (max-width: 600px)': {
+      width: '50%',
     },
   },
 
@@ -102,9 +112,13 @@ const fullItemCardStyles = () => ({
     width: '79%',
     color: '#ffffff',
     backgroundColor: '#000000',
-    fontSize: '1.5rem',
-    '@media (max-width: 800px)': {
+    fontSize: '1.25rem',
+    '@media (max-width: 1200px)': {
       fontSize: '1rem',
+      width: '70%',
+    },
+    '@media (max-width: 600px)': {
+      fontSize: '0.75rem',
     },
   },
 
@@ -115,6 +129,9 @@ const fullItemCardStyles = () => ({
     padding: 5,
     color: '#ffffff',
     marginBottom: 0,
+    '@media (max-width: 1200px)': {
+      width: '29%',
+    },
   },
 });
 

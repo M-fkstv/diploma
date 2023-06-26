@@ -11,18 +11,23 @@ import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Icon } from '../Icons/Icon';
 import { useButtonStyles } from '../Button/Button.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { useTheme } from 'react-jss';
 import { useHeaderStyles } from '../Header/Header.styles';
 import { ModalMask } from '../Modal';
-import { useSelector } from 'react-redux';
-import { useLogOut } from '../../services/logOut';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '../Button';
+import { removeUser } from '../../store/slices/user.slice';
+import { clearBag } from '../../store/slices/bag.slice';
+import { clearCategory } from '../../store/slices/category.slice';
+import { clearFavorites } from '../../store/slices/favorites.slice';
+import { clearSearchResult } from '../../store/slices/search.slice';
 
 const drawerWidth = 240;
-// const navItems = [(<Link to="/" className={classes.menuLink}>NEW ARRIVALS</Link>),]
+// const navItems = [(<Link to="/" className={classes.asideLink}>NEW ARRIVALS</Link>),]
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -32,8 +37,20 @@ function DrawerAppBar(props) {
   const iconClasses = useIconStyles();
   const searchRef = useRef(null);
   const bagState = useSelector((state) => state.bag);
+  const email = useSelector((state) => state.user.email);
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    dispatch(removeUser());
+    dispatch(clearBag());
+    dispatch(clearCategory());
+    dispatch(clearFavorites());
+    dispatch(clearSearchResult());
+    navigate('/register');
   };
 
   const drawer = (
@@ -45,21 +62,21 @@ function DrawerAppBar(props) {
       <List>
         <ListItem disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <Link to="/" className={classes.menuLink}>
+            <Link to="/" className={classes.asideLink}>
               NEW ARRIVALS
             </Link>
           </ListItemButton>
         </ListItem>{' '}
         <ListItem disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <Link to="/" className={classes.menuLink}>
+            <Link to="/" className={classes.asideLink}>
               SHOP
             </Link>
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <Link to="/" className={classes.menuLink}>
+            <Link to="/" className={classes.asideLink}>
               COLLECTION
             </Link>
           </ListItemButton>
@@ -68,7 +85,7 @@ function DrawerAppBar(props) {
           <ListItemButton sx={{ textAlign: 'center' }}>
             <button
               onClick={() => searchRef.current.open()}
-              className={buttonClasses.headerBtn}>
+              className={buttonClasses.asideBtn}>
               <Icon id="#search" className={iconClasses.root} />
               <span>SEARCH</span>
             </button>
@@ -76,7 +93,7 @@ function DrawerAppBar(props) {
         </ListItem>{' '}
         <ListItem disablePadding>
           <ListItemButton color="#000000" sx={{ textAlign: 'center' }}>
-            <Link to="/favorites" className={classes.menuLink}>
+            <Link to="/favorites" className={classes.asideLink}>
               {/*<IconButton aria-label="like" size="small">*/}
               <FavoriteBorderIcon fontSize="large" />
               {/*</IconButton>*/}
@@ -85,7 +102,7 @@ function DrawerAppBar(props) {
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton color="inherit" sx={{ textAlign: 'center' }}>
-            <Link to="/bag" className={classes.menuLink}>
+            <Link to="/bag" className={classes.asideLink}>
               {/*<BagIcon />/*/}
               <Icon id="#shopping-cart" className={iconClasses.bagIcon} />{' '}
               <span>({bagState.length})</span>
@@ -94,7 +111,10 @@ function DrawerAppBar(props) {
         </ListItem>{' '}
         <ListItem disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <button className={buttonClasses.headerBtn}>SING OUT</button>
+            <Button
+              onClick={logOut}
+              className={buttonClasses.asideBtn}
+              title={email ? 'SING OUT' : 'SIGN IN'}></Button>
           </ListItemButton>
         </ListItem>
       </List>
@@ -103,15 +123,6 @@ function DrawerAppBar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
-  // const logOut = () => {
-  //   dispatch(removeUser());
-  //   dispatch(clearBag());
-  //   dispatch(clearCategory());
-  //   dispatch(clearFavorites());
-  //   dispatch(clearSearchResult());
-  //   navigate('/register');
-  // };
 
   return (
     <>

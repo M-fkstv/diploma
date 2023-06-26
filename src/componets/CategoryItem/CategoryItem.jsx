@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Icon } from '../Icons/Icon';
-
+import { Button } from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFavorites } from '../../store/slices/favorites.slice';
 import { setBag } from '../../store/slices/bag.slice';
@@ -12,6 +12,7 @@ import { useCategoryItemStyles } from './CategoryItem.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
 import IconButton from '@mui/material/IconButton';
 import { useButtonStyles } from '../Button/Button.styles';
+
 export const CategoryItem = (item) => {
   const classes = useCategoryItemStyles();
   const iconClasses = useIconStyles();
@@ -19,20 +20,20 @@ export const CategoryItem = (item) => {
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
-  const addToFavorites = (e) => {
+  const handleAddToFavorites = (e) => {
     e.preventDefault();
     if (!initFavState.find((favItem) => favItem.id === item.id)) {
       dispatch(setFavorites(item));
     }
   };
-  const addToBag = (e) => {
+  const handleAddToBag = (e) => {
     e.preventDefault();
     if (!initBagState.find((bagItem) => bagItem.id === item.id)) {
       dispatch(setBag(item));
     }
   };
   return (
-    <div className={classes.itemWrapper}>
+    <figure className={classes.itemWrapper}>
       <Link to={`item/:${item.id}`} state={item}>
         <img
           className={classes.examplesIcon}
@@ -41,18 +42,26 @@ export const CategoryItem = (item) => {
           alt={item.name}
         />
         <div className={classes.hover}>
-          <button className={buttonClasses.hoverButton} onClick={addToBag}>
-            ADD TO BAG
-          </button>
+          <Button
+            title="ADD TO BAG"
+            className={buttonClasses.hoverButton}
+            onClick={handleAddToBag}></Button>
         </div>
       </Link>
+
       <IconButton
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
-        onClick={addToFavorites}>
+        onClick={handleAddToFavorites}>
         <Icon id="#like" className={iconClasses.like} />
       </IconButton>
-      <p className={classes.price}>{dollar.format(item.price.value / 100)}</p>
-    </div>
+      <figcaption>
+        <p className={classes.price}>{dollar.format(item.price.value / 100)}</p>
+      </figcaption>
+    </figure>
   );
+};
+
+CategoryItem.propTypes = {
+  item: PropTypes.object,
 };

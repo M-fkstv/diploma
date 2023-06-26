@@ -1,33 +1,37 @@
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useFullItemCardStyles } from './FullItemCard.styles';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
-import { Icon } from '../Icons/Icon';
-import { Button } from '../Button';
 import { Accordion } from '../Accordion';
+import { Button } from '../Button';
 
 import { setBag } from '../../store/slices/bag.slice';
 import { setFavorites } from '../../store/slices/favorites.slice';
 
 import { dollar } from '../../constants/toDollar';
 
-import { useIconStyles } from '../Icons/Icon/Icon.style';
-import { useIndexStyles } from '../../../index.styles';
+import { useFullItemCardStyles } from './FullItemCard.styles';
 
 export const FullItemCard = () => {
   const classes = useFullItemCardStyles();
-  const indClasses = useIndexStyles();
-  const iconClasses = useIconStyles();
-  const { state } = useLocation();
+  const { item } = useLocation();
   const dispatch = useDispatch();
+  const initFavState = useSelector((state) => state.favorites);
+  const initBagState = useSelector((state) => state.bag);
 
-  const addToBag = () => {
-    dispatch(setBag(state));
+  const handleAddToBag = (e) => {
+    e.preventDefault();
+    if (!initBagState.find((bagItem) => bagItem.id === item.id)) {
+      dispatch(setBag(item));
+    }
   };
-  const addToFavorites = () => {
-    dispatch(setFavorites(state));
+
+  const handleAddToFavorites = (e) => {
+    e.preventDefault();
+    if (!initFavState.find((favItem) => favItem.id === item.id)) {
+      dispatch(setFavorites(item));
+    }
   };
 
   return (
@@ -35,21 +39,21 @@ export const FullItemCard = () => {
       <div className={classes.cardWrapper}>
         <img
           className={classes.cardImage}
-          id={state.id}
-          src={state.images[0]}
-          alt={state.name}
+          id={item.id}
+          src={item.images[0]}
+          alt={item.name}
         />
         <img
           className={classes.cardImage}
-          id={state.id}
-          src={state.images[1]}
-          alt={state.name}
+          id={item.id}
+          src={item.images[1]}
+          alt={item.name}
         />
       </div>
       <div className={classes.cardInfo}>
-        <p>{state.name}</p>
+        <p>{item.name}</p>
         <div className={classes.priceInfo}>
-          <p>USD{dollar.format(state.price.value / 100)}</p>
+          <p>USD{dollar.format(item.price.value / 100)}</p>
           <p>PRE ORDER</p>
         </div>
 
@@ -57,13 +61,13 @@ export const FullItemCard = () => {
           <p>COLOR</p>
           <div
             className={classes.colorValue}
-            style={{ backgroundColor: state.color.name }}></div>
+            style={{ backgroundColor: item.color.hex }}></div>
         </div>
 
         <div className={classes.sizeInfo}>
           <p>SIZE</p>
           <ul className={classes.sizeValue}>
-            {state.availableSizes[0].split(',').map((item, index) => (
+            {item.availableSizes[0].split(',').map((item, index) => (
               <li key={index}>
                 <NavLink to="/">{item}</NavLink>
               </li>
@@ -74,27 +78,29 @@ export const FullItemCard = () => {
           <Button
             title={'ADD TO BAG'}
             className={classes.bagButton}
-            onClick={addToBag}
+            onClick={handleAddToBag}
           />
-          <button className={classes.wishButton} onClick={addToFavorites}>
-            <Icon id="#wishlist" className={iconClasses.root} />
-          </button>
+          <Button className={classes.wishButton} onClick={handleAddToFavorites}>
+            <FavoriteBorderIcon />
+          </Button>
         </div>
-        <Accordion
-          title={'PRODUCT DESCRIPTION'}
-          description={state.description}
-          id={state.id}
-        />
-        <Accordion
-          title={'SHIPPING & RETURN'}
-          description={state.description}
-          id={state.id}
-        />
-        <Accordion
-          title={'FABRIC COMPOSITION'}
-          description={state.description}
-          id={state.id}
-        />
+        <div>
+          <Accordion
+            title={'PRODUCT DESCRIPTION'}
+            description={item.description}
+            id={item.id}
+          />
+          <Accordion
+            title={'SHIPPING & RETURN'}
+            description={item.description}
+            id={item.id}
+          />
+          <Accordion
+            title={'FABRIC COMPOSITION'}
+            description={item.description}
+            id={item.id}
+          />
+        </div>
       </div>
     </div>
   );

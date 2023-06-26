@@ -9,6 +9,7 @@ import { setUser } from '../../store/slices/user.slice';
 import { Form } from '../Form';
 
 import { useFormStyles } from '../Form/Form.styles';
+import { Button } from '../Button';
 
 export const SingUp = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,12 @@ export const SingUp = () => {
   return (
     <div className={classes.bcg}>
       <div className={classes.wrapper}>
-        <h1 className={classes.title}>Create account</h1>
+        <div className={classes.titleWrapper}>
+          <h1 className={classes.title}>Create account</h1>
+          <Button
+            className={classes.closeButton}
+            onClick={() => navigate('/')}></Button>
+        </div>
         <Form title="Regirster" onSubmit={handleRegister} />
         <p className={classes.descr}>
           <Link to="/login">I HAVE AN ACCOUNT</Link>

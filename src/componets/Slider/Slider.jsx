@@ -18,11 +18,6 @@ export const Slider = ({ className, data }) => {
   const [activeNext, setActiveNext] = useState(true);
   const [activePrev, setActivePrev] = useState(true);
 
-  const changeSlide = () => {
-    setActiveNext(true);
-    setActivePrev(true);
-  };
-
   return (
     <>
       <SliderButton

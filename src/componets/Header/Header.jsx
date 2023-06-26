@@ -5,19 +5,18 @@ import { useTheme } from 'react-jss';
 
 import { Icon } from '../Icons/Icon';
 import { ModalMask } from '../Modal';
+import { Button } from '../Button';
+import DrawerAppBar from '../Burger/Burger';
 
-import { useHeaderStyles } from './Header.styles';
-import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { removeUser } from '../../store/slices/user.slice';
 import { clearBag } from '../../store/slices/bag.slice';
 import { clearCategory } from '../../store/slices/category.slice';
 import { clearFavorites } from '../../store/slices/favorites.slice';
 import { clearSearchResult } from '../../store/slices/search.slice';
-import { Button } from '../Button';
-import { useButtonStyles } from '../Button/Button.styles';
 
-import DrawerAppBar from '../Burger/Burger';
-import { useLogOut } from '../../services/logOut';
+import { useHeaderStyles } from './Header.styles';
+import { useIconStyles } from '../Icons/Icon/Icon.style';
+import { useButtonStyles } from '../Button/Button.styles';
 
 export const Header = () => {
   const theme = useTheme();
@@ -38,7 +37,6 @@ export const Header = () => {
     dispatch(clearSearchResult());
     navigate('/register');
   };
-  // const logOut = useLogOut();
 
   return (
     <header className={classes.root}>
@@ -47,13 +45,13 @@ export const Header = () => {
         <Button className={buttonClasses.burgerButton}>
           <Icon id="#burger" className={iconClasses.root} />
         </Button>
-        <Link to="/" className={classes.menuLink}>
+        <Link to="/" className={classes.headerLink}>
           NEW ARRIVALS
         </Link>
-        <Link to="/" className={classes.menuLink}>
+        <Link to="/" className={classes.headerLink}>
           SHOP
         </Link>
-        <Link to="/" className={classes.menuLink}>
+        <Link to="/" className={classes.headerLink}>
           COLLECTION
         </Link>
       </nav>
@@ -61,19 +59,20 @@ export const Header = () => {
       <nav className={classes.menuRight}>
         <button
           onClick={() => searchRef.current.open()}
-          className={buttonClasses.headerBtn}>
+          className={buttonClasses.primaryBtn}>
           <Icon id="#search" className={iconClasses.root} />
 
           <span>SEARCH</span>
         </button>
-        <button onClick={logOut} className={buttonClasses.headerBtn}>
-          {email ? 'SING OUT' : 'SIGN IN'}
-        </button>
-        <Link to="/bag" className={classes.menuLink}>
+        <Button
+          onClick={logOut}
+          className={buttonClasses.primaryBtn}
+          title={email ? 'SING OUT' : 'SIGN IN'}></Button>
+        <Link to="/bag" className={classes.headerLink}>
           <Icon id="#shopping-cart" className={iconClasses.bagIcon} />{' '}
           <span>BAG({bagState.length})</span>
         </Link>
-        <Link to="/favorites" className={classes.menuLink}>
+        <Link to="/favorites" className={classes.headerLink}>
           <Icon id="#wishlist" className={iconClasses.root} />
         </Link>
       </nav>

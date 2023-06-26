@@ -9,6 +9,7 @@ import { setUser } from '../../store/slices/user.slice';
 import { Form } from '../Form';
 
 import { useFormStyles } from '../Form/Form.styles';
+import { Button } from '../Button';
 
 export const LogIn = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,13 @@ export const LogIn = () => {
   return (
     <div className={classes.bcg}>
       <div className={classes.wrapper}>
-        <h1 className={classes.title}>SING IN</h1>
+        <div className={classes.titleWrapper}>
+          <h1 className={classes.title}>SING IN</h1>
+          <Button
+            className={classes.closeButton}
+            onClick={() => navigate('/')}></Button>
+        </div>
+
         <Form title="Sing up" onSubmit={handleLogin} />
         <p className={classes.descr}>
           <Link to="/register">REGISTER</Link>

@@ -1,16 +1,14 @@
-import React, { Suspense } from 'react';
-import { Header } from '../Header';
+import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { Sales } from '../Sales';
 import { Categories } from '../Categories';
-
-import { InstaBox } from '../InstaBox';
-
-import { Footer } from '../Footer';
 import { SortByCategory } from '../CategorySort';
 import { SearchRes } from '../CategorySort/SearchRes';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
+import { InstaBox } from '../InstaBox';
+import { Sales } from '../Sales';
 import { TopSection } from '../TopSection';
 
 export const App = () => {
@@ -20,15 +18,18 @@ export const App = () => {
   return (
     <>
       <Header />
-      <TopSection />
-      {searchResult && (
-        <SearchRes searchResult={searchResult} title={'Search Result'} />
-      )}
-      <Categories />
-      {category && <SortByCategory />}{' '}
-      {/*or <SearchRes searchResult={searchResult} title={'Search Result'} />*/}
-      <Sales />
-      <InstaBox />
+      <main>
+        <TopSection />
+        {searchResult && (
+          <SearchRes searchResult={searchResult} title={'Search Result'} />
+        )}
+        <Categories />
+        {category && <SortByCategory />}{' '}
+        {/*or <SearchRes searchResult={searchResult} title={'Search Result'} />*/}
+        <Sales />
+        <InstaBox />
+      </main>
+
       <Footer />
       {/*<SimpleAccordion />*/}
       {/*<MyComponent />*/}

@@ -5,14 +5,37 @@ const buttonStyles = (theme) => ({
     cursor: 'pointer',
     color: '#fff',
     backgroundColor: '#000000',
-    fontSize: '1.25rem',
+    minWidth: '50%',
+    fontSize: '1.5rem',
     padding: '10px 20px',
     '&:hover': {
       backgroundColor: '#fff',
       color: '#000',
       transition: 'color 0.5s ease-in-out, background-color 1s ease-in-out',
     },
+    '@media (600px <= width <= 1200px)': {
+      fontSize: '1.25rem',
+    },
+    '@media (320px <= width <= 600px)': {
+      fontSize: '1rem',
+    },
   },
+
+  showMoreButton: {
+    cursor: 'pointer',
+    color: '#000',
+    backgroundColor: '#fff',
+    width: 300,
+    fontSize: '1.5rem',
+    padding: '10px 20px',
+    marginTop: 40,
+    '&:hover': {
+      backgroundColor: '#000',
+      color: '#fff',
+      transition: 'color 0.5s ease-in-out, background-color 1s ease-in-out',
+    },
+  },
+
   burgerButton: {
     cursor: 'pointer',
     backgroundColor: 'transparent',
@@ -21,10 +44,10 @@ const buttonStyles = (theme) => ({
       display: 'none',
     },
   },
+
   headerBtn: {
     display: 'flex',
     alignItems: 'center',
-    color: theme.palette.primary.mainText,
     fontSize: 18,
     backgroundColor: ' transparent',
     border: 0,
@@ -32,9 +55,16 @@ const buttonStyles = (theme) => ({
     '& span': {
       marginRight: 5,
     },
-    '@media (max-width: 1200px)': {
-      color: '#000',
-    },
+  },
+
+  primaryBtn: {
+    composes: '$headerBtn',
+    color: theme.palette.primary.mainText,
+  },
+
+  asideBtn: {
+    composes: '$headerBtn',
+    color: '#000',
   },
 
   topSectionButton: {
@@ -50,6 +80,15 @@ const buttonStyles = (theme) => ({
       backgroundColor: '#fff',
       color: '#000',
       transition: 'all 1s ease-in-out',
+    },
+    '@media (max-width: 840px)': {
+      color: '#000',
+      borderColor: '#000',
+      '&:hover': {
+        backgroundColor: '#000',
+        color: '#fff',
+        transition: 'all 1s ease-in-out',
+      },
     },
   },
 
@@ -75,14 +114,14 @@ const buttonStyles = (theme) => ({
     height: 48,
     textAlign: 'center',
     fontSize: 18,
-    opacity: 0,
+    // opacity: 0,
     cursor: 'pointer',
-    '&:hover': {
-      opacity: 1,
-      transition: 'opacity 200ms linear',
-    },
+    // '&:hover': {
+    //   opacity: 1,
+    //   transition: 'opacity 200ms linear',
+    // },
     '&:active': {
-      scale: 0.8,
+      scale: 0.99,
     },
   },
 });

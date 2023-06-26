@@ -9,6 +9,7 @@ export const TopSection = () => {
   const buttonClasses = useButtonStyles();
   return (
     <div className="wrapper">
+      <div className="img"></div>
       <div className={classes.content}>
         <h1>NEW COLLECTION</h1>
         <p>

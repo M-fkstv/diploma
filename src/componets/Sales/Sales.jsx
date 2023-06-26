@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { Slider } from '../Slider';
-import { SliderButton } from '../SliderButton';
 import { Loader } from '../Loader';
 
 import { useGetSalesQuery } from '../../services/getSales';
@@ -34,8 +33,6 @@ export const Sales = () => {
         <h2 className={indexClasses.sectionTitle}>#MODNIKKY Sale</h2>
 
         <div className={sliderClasses.wrapper}>
-          {/* <SliderButton className={sliderClasses.buttonPrev} id={'prevEl'} />
-          <SliderButton className={sliderClasses.buttonNext} id={'nextEl'} /> */}
           <Slider className={classes.examples} data={inform} />
         </div>
       </section>

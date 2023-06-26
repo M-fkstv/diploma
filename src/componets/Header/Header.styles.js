@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss';
 const headerStyles = (theme) => ({
   root: {
     position: 'absolute',
+    zIndex: 1,
     top: 0,
     width: '100%',
     display: 'flex',
@@ -55,26 +56,18 @@ const headerStyles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
-    color: theme.palette.primary.mainText,
     fontSize: 18,
-    '@media (max-width: 1200px)': {
-      color: '#000',
-    },
     // '& svg ': {
     //   fucking svg color: 108, TODO !!!!!
     // },
   },
-  headerBtn: {
-    display: 'flex',
-    alignItems: 'center',
+  headerLink: {
+    composes: '$menuLink',
     color: theme.palette.primary.mainText,
-    fontSize: 18,
-    backgroundColor: ' transparent',
-    border: 0,
-    cursor: 'pointer',
-    '& span': {
-      marginRight: 5,
-    },
+  },
+  asideLink: {
+    composes: '$menuLink',
+    color: '#000',
   },
 });
 

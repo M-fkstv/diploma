@@ -10,11 +10,17 @@ export const useLogOut = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log('wtf');
-
-  dispatch(removeUser());
-  dispatch(clearBag());
-  dispatch(clearCategory());
-  dispatch(clearFavorites());
-  dispatch(clearSearchResult());
-  navigate('/register');
+  // dispatch(removeUser());
+  // dispatch(clearBag());
+  // dispatch(clearCategory());
+  // dispatch(clearFavorites());
+  // dispatch(clearSearchResult());
+  return (
+    dispatch(removeUser()),
+    dispatch(clearBag()),
+    dispatch(clearCategory()),
+    dispatch(clearFavorites()),
+    dispatch(clearSearchResult()),
+    navigate('/register')
+  );
 };
