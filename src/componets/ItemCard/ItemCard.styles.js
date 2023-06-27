@@ -4,7 +4,6 @@ import { discount } from '../ItemCard';
 const itemCardStyles = () => ({
   examplesIcons: {
     width: 296,
-    // height: 400,
     margin: '0 auto',
     overflow: 'hidden',
     '&:before': {

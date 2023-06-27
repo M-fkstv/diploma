@@ -15,22 +15,22 @@ import { useFullItemCardStyles } from './FullItemCard.styles';
 
 export const FullItemCard = () => {
   const classes = useFullItemCardStyles();
-  const { item } = useLocation();
+  const { state } = useLocation();
   const dispatch = useDispatch();
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
 
   const handleAddToBag = (e) => {
     e.preventDefault();
-    if (!initBagState.find((bagItem) => bagItem.id === item.id)) {
-      dispatch(setBag(item));
+    if (!initBagState.find((bagItem) => bagItem.id === state.id)) {
+      dispatch(setBag(state));
     }
   };
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    if (!initFavState.find((favItem) => favItem.id === item.id)) {
-      dispatch(setFavorites(item));
+    if (!initFavState.find((favItem) => favItem.id === state.id)) {
+      dispatch(setFavorites(state));
     }
   };
 
@@ -39,21 +39,21 @@ export const FullItemCard = () => {
       <div className={classes.cardWrapper}>
         <img
           className={classes.cardImage}
-          id={item.id}
-          src={item.images[0]}
-          alt={item.name}
+          id={state.id}
+          src={state.images[0]}
+          alt={state.name}
         />
         <img
           className={classes.cardImage}
-          id={item.id}
-          src={item.images[1]}
-          alt={item.name}
+          id={state.id}
+          src={state.images[1]}
+          alt={state.name}
         />
       </div>
       <div className={classes.cardInfo}>
-        <p>{item.name}</p>
+        <p>{state.name}</p>
         <div className={classes.priceInfo}>
-          <p>USD{dollar.format(item.price.value / 100)}</p>
+          <p>USD{dollar.format(state.price.value / 100)}</p>
           <p>PRE ORDER</p>
         </div>
 
@@ -61,13 +61,13 @@ export const FullItemCard = () => {
           <p>COLOR</p>
           <div
             className={classes.colorValue}
-            style={{ backgroundColor: item.color.hex }}></div>
+            style={{ backgroundColor: state.color.hex }}></div>
         </div>
 
         <div className={classes.sizeInfo}>
           <p>SIZE</p>
           <ul className={classes.sizeValue}>
-            {item.availableSizes[0].split(',').map((item, index) => (
+            {state.availableSizes[0].split(',').map((item, index) => (
               <li key={index}>
                 <NavLink to="/">{item}</NavLink>
               </li>
@@ -87,18 +87,18 @@ export const FullItemCard = () => {
         <div>
           <Accordion
             title={'PRODUCT DESCRIPTION'}
-            description={item.description}
-            id={item.id}
+            description={state.description}
+            id={state.id}
           />
           <Accordion
             title={'SHIPPING & RETURN'}
-            description={item.description}
-            id={item.id}
+            description={state.description}
+            id={state.id}
           />
           <Accordion
             title={'FABRIC COMPOSITION'}
-            description={item.description}
-            id={item.id}
+            description={state.description}
+            id={state.id}
           />
         </div>
       </div>

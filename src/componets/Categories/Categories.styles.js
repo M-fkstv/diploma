@@ -18,10 +18,15 @@ export const categoriesStyles = {
     maxWidth: 1240,
     width: ' calc(100% / 14 * 12)',
     justifyContent: 'space-between',
+    '@media (max-width: 1200px)': {
+      width: ' calc(100% / 14 * 9)',
+    },
+    '@media (max-width: 600px)': {
+      width: ' calc(100% / 14 * 12)',
+    },
   },
 
   card: {
-    // width: '100%',
     display: 'flex',
     width: 196,
     height: 90,
@@ -29,6 +34,13 @@ export const categoriesStyles = {
     backgroundColor: '#EDE7F0',
     alignItems: 'center',
     cursor: 'pointer',
+
+    '@media (max-width: 800px)': {
+      width: 150,
+    },
+    '@media (max-width: 360px)': {
+      width: 140,
+    },
   },
 
   icon: {
@@ -36,11 +48,20 @@ export const categoriesStyles = {
     maxWidth: 50,
     aspectRatio: '1/1',
     objectFit: 'contain',
+    '@media (max-width: 800px)': {
+      maxWidth: 40,
+    },
+    '@media (max-width: 360px)': {
+      maxWidth: 32,
+    },
   },
 
   subtitle: {
     margin: '0 0 0 5px',
-    fontSize: 24,
+    fontSize: '1.5rem',
+    '@media (max-width: 800px)': {
+      fontSize: '1rem',
+    },
   },
 
   colLg12: {

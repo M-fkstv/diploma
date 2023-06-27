@@ -45,19 +45,19 @@ export const Slider = ({ className, data }) => {
         }}
         loop={false}
         spaceBetween={16}
-        slidesPerView={4}
+        slidesPerView={2}
         onInit={() => setActivePrev(false)}
         onSlideChange={() => setActivePrev(true)}
         // onReachEnd={() => setActiveNext(false)}  // TODO: hide navagation
         // onReachBeginning={() => setActivePrev(false)}
         watchOverflow
         breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 2,
-          },
+          // 0: {
+          //   slidesPerView: 1,
+          // },
+          // 640: {
+          //   slidesPerView: 2,
+          // },
           800: {
             slidesPerView: 3,
           },

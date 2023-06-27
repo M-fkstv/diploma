@@ -1,26 +1,23 @@
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-
-import { Icon } from '../Icons/Icon';
 
 import { dollar } from '../../constants/toDollar';
 
 import { setBag } from '../../store/slices/bag.slice';
 import { setFavorites } from '../../store/slices/favorites.slice';
 
+import { Button } from '../Button';
 import { useButtonStyles } from '../Button/Button.styles';
-import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { useItemCardStyles } from './ItemCard.styles';
 
 export const discount = '"25%"';
 
 export const ItemCard = (item) => {
   const classes = useItemCardStyles();
-  const iconClasses = useIconStyles();
   const buttonClasses = useButtonStyles();
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
@@ -84,11 +81,11 @@ export const ItemCard = (item) => {
           alt={item.name}
         />
         <div className={classes.hover}>
-          <button
+          <Button
             className={buttonClasses.hoverButton}
-            onClick={handleAddToBag}>
-            ADD TO BAG
-          </button>
+            onClick={handleAddToBag}
+            title=" ADD TO BAG"
+          />
         </div>
       </Link>
 
@@ -96,7 +93,7 @@ export const ItemCard = (item) => {
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
         onClick={handleAddToFavorites}>
-        <Icon id="#like" className={iconClasses.like} />
+        <FavoriteBorderIcon sx={{ fontSize: 40 }} />
       </IconButton>
       <figcaption className={classes.description}>
         <p className={classes.descriptionText}>

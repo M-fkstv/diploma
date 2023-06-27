@@ -6,11 +6,11 @@ export const useSliderStyles = createUseStyles({
     position: 'relative',
     margin: ' 0 auto',
     maxWidth: 1240,
-    '@media (0px <= width <= 960px)': {
+    '@media (0px <= width <= 800px)': {
       // margin: '0 24px',
       maxWidth: 850,
     },
-    '@media (961px <= width <= 1200px)': {
+    '@media (801px <= width <= 1200px)': {
       // margin: '0 24px',
       maxWidth: 960,
     },

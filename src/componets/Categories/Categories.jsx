@@ -12,7 +12,7 @@ import { useIndexStyles } from '../../../index.styles';
 
 export const Categories = () => {
   const dispatch = useDispatch();
-  const { data, isSuccess } = useGetSalesQuery();
+  const { data = [], isSuccess } = useGetSalesQuery();
 
   const result = (e) => {
     if (isSuccess) {

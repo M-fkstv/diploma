@@ -8,15 +8,19 @@ export const InstaBox = () => {
   const { data, isSuccess } = useGetSalesQuery();
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
+  // const localStoreageData = JSON.parse(localStorage.getItem('data'));
 
   const incr = () => {
     setStart((prevState) => prevState + 1);
     setEnd((prevState) => prevState + 1);
   };
+  //
   if (isSuccess) {
+    // original
     const instaBoxData = data.slice(start, end);
     console.log(instaBoxData);
 
+    // const instaBoxData = isSuccess ? data.slice(start, end) : localStoreageData; // for problems whith intermet
     return (
       <section className={classes.root}>
         <div>

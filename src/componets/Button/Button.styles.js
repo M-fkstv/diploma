@@ -94,13 +94,14 @@ const buttonStyles = (theme) => ({
 
   wishlistButton: {
     position: 'absolute',
-    top: '5%',
-    left: '80%',
+    top: '2%',
+    left: '81%',
     cursor: 'pointer',
     backgroundColor: 'transparent',
     border: 0,
+    color: '#ffffff',
     '&:hover  ': {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: 'rgba(0, 0, 0, 0.25)',
     },
   },
 
