@@ -30,14 +30,16 @@ export default function SimpleAccordion() {
         expanded={isWideScreen ? true : expanded}
         onChange={handleExpand}
         id={'panel1a'}
-        className={classes.accordion}>
+        className={classes.accordion}
+      >
         <AccordionSummary
           style={{
             padding: 0,
           }}
           expandIcon={isWideScreen ? null : expanded ? <Remove /> : <Add />}
           aria-controls="panel1a-content"
-          id="panel1a-header">
+          id="panel1a-header"
+        >
           <Typography variant="h5" className={classes.subTitle}>
             CUSTOMER SERVICE
           </Typography>
@@ -45,7 +47,8 @@ export default function SimpleAccordion() {
         <AccordionDetails
           style={{
             padding: 0,
-          }}>
+          }}
+        >
           <Typography>
             <li>CONTACT</li>
             <li>TRACK ORDER</li>
@@ -73,7 +76,8 @@ export default function SimpleAccordion() {
           }}
           expandIcon={isWideScreen ? null : expanded ? <Remove /> : <Add />}
           aria-controls="panel2a-content"
-          id="panel2a-header">
+          id="panel2a-header"
+        >
           <Typography variant="h5" className={classes.subTitle}>
             INFO
           </Typography>
@@ -81,7 +85,8 @@ export default function SimpleAccordion() {
         <AccordionDetails
           style={{
             padding: 0,
-          }}>
+          }}
+        >
           <Typography>
             <li>GIFT VOUCHERS</li>
             <li>SIZE GUIDE</li>
@@ -107,7 +112,8 @@ export default function SimpleAccordion() {
           }}
           expandIcon={isWideScreen ? null : expanded ? <Remove /> : <Add />}
           aria-controls="panel3a-content"
-          id="panel3a-header">
+          id="panel3a-header"
+        >
           <Typography variant="h5" className={classes.subTitle}>
             FOLLOW US
           </Typography>
@@ -115,7 +121,8 @@ export default function SimpleAccordion() {
         <AccordionDetails
           style={{
             padding: 0,
-          }}>
+          }}
+        >
           <Typography>
             <li>
               <Link to="#">
@@ -155,7 +162,8 @@ export default function SimpleAccordion() {
             padding: 0,
           }}
           aria-controls="panel4a-content"
-          id="panel4a-header">
+          id="panel4a-header"
+        >
           <Typography variant="h5" className={classes.subTitle}>
             CONTACT US
           </Typography>
@@ -163,7 +171,8 @@ export default function SimpleAccordion() {
         <AccordionDetails
           style={{
             padding: 0,
-          }}>
+          }}
+        >
           <Typography>
             <li>hello@modnikky.com</li>
             <li>+7 910 832 26XX</li>

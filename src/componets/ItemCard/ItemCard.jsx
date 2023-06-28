@@ -92,7 +92,8 @@ export const ItemCard = (item) => {
       <IconButton
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
-        onClick={handleAddToFavorites}>
+        onClick={handleAddToFavorites}
+      >
         <FavoriteBorderIcon sx={{ fontSize: 40 }} />
       </IconButton>
       <figcaption className={classes.description}>

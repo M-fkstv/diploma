@@ -36,7 +36,8 @@ export const Categories = () => {
               key={index}
               className={classes.card}
               onClick={result}
-              id={item.title}>
+              id={item.title}
+            >
               <Icon id={item.id} className={classes.icon} />
               <p className={classes.subtitle}>{item.title}</p>
             </div>

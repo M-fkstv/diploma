@@ -5,7 +5,7 @@ const fullItemCardStyles = () => ({
     display: 'flex',
     maxWidth: '100vw',
     top: 60,
-    margin: '100px 0 60px 0',
+    margin: '60px 0 60px 0',
     '@media (max-width: 800px)': {
       flexDirection: 'column',
     },

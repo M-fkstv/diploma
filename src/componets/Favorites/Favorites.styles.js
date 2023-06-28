@@ -42,10 +42,10 @@ const favoritesStyles = () => ({
   cardInfo: {
     marginLeft: 20,
     '& p': {
-      fontSize: '1.25rem',
+      fontSize: '1rem',
       marginBottom: 20,
       '@media (max-width: 800px)': {
-        fontSize: '1rem',
+        fontSize: '0.8rem',
       },
       '@media (max-width: 600px)': {
         fontSize: '0.75rem',
@@ -53,10 +53,10 @@ const favoritesStyles = () => ({
     },
     '& :first-child': {
       marginTop: 20,
-      fontSize: '1.25rem',
+      fontSize: '1rem',
       fontWeight: 400,
       '@media (max-width: 800px)': {
-        fontSize: '1rem',
+        fontSize: '0.8rem',
         marginTop: 16,
       },
       '@media (max-width: 600px)': {
@@ -66,9 +66,9 @@ const favoritesStyles = () => ({
     },
     '& :nth-child(2)': {
       marginBottom: 40,
-      fontSize: '1.25rem',
+      fontSize: '1rem',
       '@media (max-width: 800px)': {
-        fontSize: '1rem',
+        fontSize: '0.8rem',
         marginBottom: 20,
       },
       '@media (max-width: 600px)': {

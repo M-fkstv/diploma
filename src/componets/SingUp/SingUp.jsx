@@ -44,7 +44,8 @@ export const SingUp = () => {
           <h1 className={classes.title}>Create account</h1>
           <Button
             className={classes.closeButton}
-            onClick={() => navigate('/')}></Button>
+            onClick={() => navigate('/')}
+          ></Button>
         </div>
         <Form title="Regirster" onSubmit={handleRegister} />
         <p className={classes.descr}>

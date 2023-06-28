@@ -69,7 +69,8 @@ export const Slider = ({ className, data }) => {
           nextEl: '#nextEl',
           prevEl: '#prevEl',
           clickable: true,
-        }}>
+        }}
+      >
         {data.map((item) => (
           <SwiperSlide key={item.id}>
             <ItemCard sales={true} {...item} />

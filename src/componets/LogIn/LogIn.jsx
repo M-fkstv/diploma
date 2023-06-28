@@ -45,7 +45,8 @@ export const LogIn = () => {
           <h1 className={classes.title}>SING IN</h1>
           <Button
             className={classes.closeButton}
-            onClick={() => navigate('/')}></Button>
+            onClick={() => navigate('/')}
+          ></Button>
         </div>
 
         <Form title="Sing up" onSubmit={handleLogin} />

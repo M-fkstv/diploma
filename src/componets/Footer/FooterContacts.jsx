@@ -29,7 +29,8 @@ const MyAccordion = ({ id, title, content }) => {
       expanded={isWideScreen ? true : expanded}
       onChange={handleExpand}
       disableGutters
-      id={id}>
+      id={id}
+    >
       <AccordionSummary
         style={{
           flexDirection: 'row-reverse',
@@ -39,7 +40,8 @@ const MyAccordion = ({ id, title, content }) => {
           isWideScreen ? null : expanded ? <RemoveIcon /> : <AddIcon />
         }
         aria-controls={`${id}-content`}
-        id={`${id}-header`}>
+        id={`${id}-header`}
+      >
         <Typography variant="h5" className={classes.subTitle}>
           {title}
         </Typography>
@@ -47,7 +49,8 @@ const MyAccordion = ({ id, title, content }) => {
       <AccordionDetails
         style={{
           paddingLeft: isWideScreen ? 0 : '35px',
-        }}>
+        }}
+      >
         <Typography>{content}</Typography>
       </AccordionDetails>
     </Accordion>

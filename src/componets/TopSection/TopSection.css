@@ -5,14 +5,14 @@
   height: 900px; */
   position: relative;
 }
-.img{
+.img {
   background: url(../../../public/mask.svg) center no-repeat, fixed;
   background-size: cover;
   min-height: 100vh;
   height: 900px;
 }
 @media only screen and (max-width: 860px) {
-  .img{
+  .img {
     background: url(../../../public/mobile-mask.svg) center no-repeat, fixed;
     background-size: cover;
   }

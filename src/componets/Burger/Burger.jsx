@@ -85,7 +85,8 @@ function DrawerAppBar(props) {
           <ListItemButton sx={{ textAlign: 'center' }}>
             <button
               onClick={() => searchRef.current.open()}
-              className={buttonClasses.asideBtn}>
+              className={buttonClasses.asideBtn}
+            >
               <Icon id="#search" className={iconClasses.root} />
               <span>SEARCH</span>
             </button>
@@ -114,7 +115,8 @@ function DrawerAppBar(props) {
             <Button
               onClick={logOut}
               className={buttonClasses.asideBtn}
-              title={email ? 'SING OUT' : 'SIGN IN'}></Button>
+              title={email ? 'SING OUT' : 'SIGN IN'}
+            ></Button>
           </ListItemButton>
         </ListItem>
       </List>
@@ -131,7 +133,8 @@ function DrawerAppBar(props) {
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
-        sx={{ mr: 2, display: { lg: 'none' } }}>
+        sx={{ mr: 2, display: { lg: 'none' } }}
+      >
         <Icon id="#burger" className={iconClasses.burgerIcon} />
       </IconButton>
 
@@ -150,7 +153,8 @@ function DrawerAppBar(props) {
               boxSizing: 'border-box',
               width: drawerWidth,
             },
-          }}>
+          }}
+        >
           {drawer}
         </Drawer>
       </Box>

@@ -29,14 +29,15 @@ const accordionStyles = () => ({
     color: '#8C8C8C',
     height: 'auto',
     maxHeight: 500,
-    marginLeft: 30,
-    transition: 'all 0.5s ease-out',
+    paddingLeft: 30,
+    marginTop: 16,
+    transition: 'height 0.5s ease-out',
   },
 
   hidden: {
     color: '#8C8C8C',
     maxHeight: 0,
-    marginLeft: 30,
+    paddingLeft: 30,
     overflow: 'hidden',
     transition: 'all 0.5s ease-out',
   },

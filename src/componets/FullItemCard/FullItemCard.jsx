@@ -61,7 +61,8 @@ export const FullItemCard = () => {
           <p>COLOR</p>
           <div
             className={classes.colorValue}
-            style={{ backgroundColor: state.color.hex }}></div>
+            style={{ backgroundColor: state.color.hex }}
+          ></div>
         </div>
 
         <div className={classes.sizeInfo}>

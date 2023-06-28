@@ -17,9 +17,9 @@ export const useSliderStyles = createUseStyles({
   },
   buttonNext: {
     position: 'absolute',
-    top: '46%',
+    top: 'calc((100% - 40px) / 2)',
     left: ' 100%',
-    transform: 'translate(-50%)',
+    transform: 'translate(-50%, -50%)',
     height: 40,
     width: 40,
     borderRadius: '50%',
@@ -57,9 +57,9 @@ export const useSliderStyles = createUseStyles({
 
   buttonPrev: {
     position: 'absolute',
-    top: '46%',
+    top: 'calc((100% - 40px) / 2)',
     left: '0',
-    transform: 'translate(-50%)',
+    transform: 'translate(-50%, -50%)',
     height: 40,
     width: 40,
     borderRadius: '50%',

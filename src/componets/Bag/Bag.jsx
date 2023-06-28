@@ -56,7 +56,8 @@ export const Bag = () => {
               <Link
                 to={`/item/id:${item.id}`}
                 state={item}
-                style={{ display: 'contents' }}>
+                style={{ display: 'contents' }}
+              >
                 <img
                   className={classes.cardImage}
                   id={item.id}
@@ -83,7 +84,8 @@ export const Bag = () => {
                           <option
                             style={{ fontSize: '1rem' }}
                             key={index}
-                            value={item}>
+                            value={item}
+                          >
                             {item}
                           </option>
                         );
@@ -95,7 +97,8 @@ export const Bag = () => {
             </div>
             <button
               className={classes.removeButton}
-              onClick={() => deleteFromBag(item)}>
+              onClick={() => deleteFromBag(item)}
+            >
               REMOVE
             </button>
             <hr />
