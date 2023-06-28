@@ -42,7 +42,14 @@ const favoritesStyles = () => ({
   cardInfo: {
     marginLeft: 20,
     '& p': {
+      fontSize: '1.25rem',
       marginBottom: 20,
+      '@media (max-width: 800px)': {
+        fontSize: '1rem',
+      },
+      '@media (max-width: 600px)': {
+        fontSize: '0.75rem',
+      },
     },
     '& :first-child': {
       marginTop: 20,
@@ -50,16 +57,30 @@ const favoritesStyles = () => ({
       fontWeight: 400,
       '@media (max-width: 800px)': {
         fontSize: '1rem',
+        marginTop: 16,
+      },
+      '@media (max-width: 600px)': {
+        fontSize: '0.75rem',
+        marginTop: 12,
       },
     },
     '& :nth-child(2)': {
       marginBottom: 40,
+      fontSize: '1.25rem',
+      '@media (max-width: 800px)': {
+        fontSize: '1rem',
+        marginBottom: 20,
+      },
+      '@media (max-width: 600px)': {
+        fontSize: '0.75rem',
+        marginBottom: 10,
+      },
     },
   },
   addToBag: {
     position: 'absolute',
     bottom: '5%',
-    fontSize: 16,
+    fontSize: '1rem',
     paddingInline: 10,
     cursor: 'pointer',
     color: '#ffffff',
@@ -72,7 +93,7 @@ const favoritesStyles = () => ({
     bottom: '5%',
     right: 0,
     border: 0,
-    fontSize: 16,
+    fontSize: '1rem',
     backgroundColor: 'transparent',
     '&:before, &:after': {
       content: '""',

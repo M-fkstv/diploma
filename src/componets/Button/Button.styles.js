@@ -2,7 +2,6 @@ import { createUseStyles } from 'react-jss';
 
 const buttonStyles = (theme) => ({
   formButton: {
-    cursor: 'pointer',
     color: '#fff',
     backgroundColor: '#000000',
     minWidth: '50%',
@@ -22,7 +21,6 @@ const buttonStyles = (theme) => ({
   },
 
   showMoreButton: {
-    cursor: 'pointer',
     color: '#000',
     backgroundColor: '#fff',
     width: 300,
@@ -37,7 +35,6 @@ const buttonStyles = (theme) => ({
   },
 
   burgerButton: {
-    cursor: 'pointer',
     backgroundColor: 'transparent',
     border: 0,
     '@media (min-width: 1200px)': {
@@ -49,9 +46,8 @@ const buttonStyles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     fontSize: 18,
-    backgroundColor: ' transparent',
+    backgroundColor: 'transparent',
     border: 0,
-    cursor: 'pointer',
     '& span': {
       marginRight: 5,
     },
@@ -70,7 +66,6 @@ const buttonStyles = (theme) => ({
   topSectionButton: {
     width: 250,
     height: 40,
-    cursor: 'pointer',
     color: '#fff',
     fontSize: '1rem',
     fontWeight: 400,
@@ -96,7 +91,6 @@ const buttonStyles = (theme) => ({
     position: 'absolute',
     top: '2%',
     left: '81%',
-    cursor: 'pointer',
     backgroundColor: 'transparent',
     border: 0,
     color: '#ffffff',
@@ -114,15 +108,34 @@ const buttonStyles = (theme) => ({
     width: 160,
     height: 48,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: '1rem',
     // opacity: 0,
-    cursor: 'pointer',
     // '&:hover': {
     //   opacity: 1,
     //   transition: 'opacity 200ms linear',
     // },
     '&:active': {
       scale: 0.99,
+    },
+  },
+  instaBlockBtn: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '1rem',
+    marginLeft: 24,
+    position: 'relative',
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      height: 6,
+      width: 6,
+      border: '2px solid #000',
+      borderRight: 0,
+      borderTop: 0,
+      top: 6,
+      left: 70,
+      zIndex: 2,
+      transform: 'rotate(235deg) skew(20deg)',
     },
   },
 });

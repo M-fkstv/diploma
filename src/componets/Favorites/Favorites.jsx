@@ -61,14 +61,17 @@ export const Favorites = () => {
         return (
           <div key={index} className={classes.cardWrapper}>
             <div className={classes.card}>
-              {/* TODO: link to item page */}
-
-              <img
-                className={classes.cardImage}
-                id={item.id}
-                src={item.images[0]}
-                alt={item.name}
-              />
+              <Link
+                to={`/item/id:${item.id}`}
+                state={item}
+                style={{ display: 'contents' }}>
+                <img
+                  className={classes.cardImage}
+                  id={item.id}
+                  src={item.images[0]}
+                  alt={item.name}
+                />
+              </Link>
 
               <div className={classes.cardInfo}>
                 <p>{item.name}</p>

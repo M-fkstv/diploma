@@ -10,8 +10,13 @@ const indexStyles = () => ({
   },
 
   '@global': {
-    body: {
+    '*': {
+      margin: '0 auto',
+      boxSizing: 'border-box',
       fontSize: 16,
+    },
+    button: {
+      cursor: 'pointer',
     },
     a: {
       textDecoration: 'none',

@@ -9,6 +9,7 @@ import { useSendOrderMutation } from '../../services/bagAPI';
 
 import { useBagStyles } from './Bag.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
+import { Link } from 'react-router-dom';
 
 export const Bag = () => {
   const [response, setResponse] = useState('');
@@ -52,12 +53,18 @@ export const Bag = () => {
         return (
           <div key={index} className={classes.cardWrapper}>
             <div className={classes.card}>
-              <img
-                className={classes.cardImage}
-                id={item.id}
-                src={item.images[0]}
-                alt={item.name}
-              />
+              <Link
+                to={`/item/id:${item.id}`}
+                state={item}
+                style={{ display: 'contents' }}>
+                <img
+                  className={classes.cardImage}
+                  id={item.id}
+                  src={item.images[0]}
+                  alt={item.name}
+                />
+              </Link>
+
               <div className={classes.cardInfo}>
                 <p>{item.name}</p>
                 <p>
