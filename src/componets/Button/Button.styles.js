@@ -138,6 +138,32 @@ const buttonStyles = (theme) => ({
       transform: 'rotate(235deg) skew(20deg)',
     },
   },
+
+  closeButton: {
+    margin: 0,
+    border: 0,
+    width: 35,
+    height: 35,
+    position: 'relative',
+    backgroundColor: 'transparent',
+    cursor: 'pointer',
+
+    '&:before, &:after': {
+      content: '""',
+      position: 'absolute',
+      width: 40,
+      height: 2,
+      left: 0,
+      top: '40%',
+      background: '#fff',
+    },
+    '&:before': {
+      transform: 'rotate(45deg)',
+    },
+    '&:after': {
+      transform: 'rotate(-45deg)',
+    },
+  },
 });
 
 export const useButtonStyles = createUseStyles(buttonStyles);

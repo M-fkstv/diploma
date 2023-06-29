@@ -9,7 +9,6 @@ import { Layout } from '../Layout';
 export const Wrapper = () => {
   return (
     <>
-      <Sprite />
       <ScrollRestoration />
       <Provider store={store}>
         <Layout />

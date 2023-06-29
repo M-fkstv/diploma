@@ -73,7 +73,7 @@ export const ItemCard = (item) => {
     //   </div>
     // </div>
     <figure className={classes.examplesIcons}>
-      <Link to={`item/:${item.id}`} state={item}>
+      <Link to={`item/${item.id}`} state={item}>
         <img
           className={classes.examplesIcon}
           id={item.id}
@@ -92,8 +92,7 @@ export const ItemCard = (item) => {
       <IconButton
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
-        onClick={handleAddToFavorites}
-      >
+        onClick={handleAddToFavorites}>
         <FavoriteBorderIcon sx={{ fontSize: 40 }} />
       </IconButton>
       <figcaption className={classes.description}>

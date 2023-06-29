@@ -64,6 +64,9 @@ const headerStyles = (theme) => ({
   headerLink: {
     composes: '$menuLink',
     color: theme.palette.primary.mainText,
+    '& span': {
+      fontSize: 18,
+    },
   },
   asideLink: {
     composes: '$menuLink',

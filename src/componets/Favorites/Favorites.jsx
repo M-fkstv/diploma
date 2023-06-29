@@ -35,6 +35,7 @@ export const Favorites = () => {
     dispatch(removeFavorites(toDispatch));
   };
   const handleAddToBag = (item) => {
+    // throw new Error('error');
     if (!bagState.find((bagItem) => bagItem.id === item.id)) {
       dispatch(setBag(item));
       dispatch(
@@ -64,8 +65,7 @@ export const Favorites = () => {
               <Link
                 to={`/item/id:${item.id}`}
                 state={item}
-                style={{ display: 'contents' }}
-              >
+                style={{ display: 'contents' }}>
                 <img
                   className={classes.cardImage}
                   id={item.id}
@@ -92,8 +92,7 @@ export const Favorites = () => {
                           <option
                             style={{ fontSize: '1rem' }}
                             key={index}
-                            value={item}
-                          >
+                            value={item}>
                             {item}
                           </option>
                         );
@@ -105,14 +104,12 @@ export const Favorites = () => {
             </div>
             <button
               className={classes.removeButton}
-              onClick={() => handleDeleteFromFavorites(item)}
-            >
+              onClick={() => handleDeleteFromFavorites(item)}>
               REMOVE
             </button>
             <button
               className={classes.addToBag}
-              onClick={() => handleAddToBag(item)}
-            >
+              onClick={() => handleAddToBag(item)}>
               ADD TO BAG
             </button>
             <hr />

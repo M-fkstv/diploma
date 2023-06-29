@@ -38,7 +38,7 @@ export const InstaBox = () => {
         <div className={classes.parent}>
           {instaBoxData.map((item, index) => {
             return (
-              <Link to={`item/:${item.id}`} key={index}>
+              <Link to={`/item/id:${item.id}`} state={item} key={index}>
                 <img
                   className={classes.image}
                   id={instaBoxData[index].id}

@@ -59,8 +59,7 @@ export const Header = () => {
       <nav className={classes.menuRight}>
         <button
           onClick={() => searchRef.current.open()}
-          className={buttonClasses.primaryBtn}
-        >
+          className={buttonClasses.primaryBtn}>
           <Icon id="#search" className={iconClasses.root} />
 
           <span>SEARCH</span>
@@ -68,8 +67,7 @@ export const Header = () => {
         <Button
           onClick={logOut}
           className={buttonClasses.primaryBtn}
-          title={email ? 'SING OUT' : 'SIGN IN'}
-        ></Button>
+          title={email ? 'SING OUT' : 'SIGN IN'}></Button>
         <Link to="/bag" className={classes.headerLink}>
           <Icon id="#shopping-cart" className={iconClasses.bagIcon} />{' '}
           <span>BAG({bagState.length})</span>

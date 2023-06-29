@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -14,6 +14,11 @@ import { TopSection } from '../TopSection';
 export const App = () => {
   const category = useSelector((state) => state.category);
   const searchResult = useSelector((state) => state.searchResult);
+  const csrollRef = useRef(null);
+
+  useEffect(() => {
+    searchResult && csrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, [searchResult]);
 
   return (
     <>
@@ -21,7 +26,11 @@ export const App = () => {
       <main>
         <TopSection />
         {searchResult && (
-          <SearchRes searchResult={searchResult} title={'Search Result'} />
+          <SearchRes
+            searchResult={searchResult}
+            title={'Search Result'}
+            ref={csrollRef}
+          />
         )}
         <Categories />
         {category && <SortByCategory />}{' '}

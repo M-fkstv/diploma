@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { CategoryItem } from '../CategoryItem/CategoryItem';
@@ -8,7 +8,7 @@ import { useIndexStyles } from '../../../index.styles';
 import { useButtonStyles } from '../Button/Button.styles';
 import { Button } from '../Button';
 
-export const SearchRes = ({ searchResult, title }) => {
+export const SearchRes = forwardRef(({ searchResult, title }, ref) => {
   const classes = useCategoriesStyles();
   const indexClasses = useIndexStyles();
   const btnClasses = useButtonStyles();
@@ -19,11 +19,15 @@ export const SearchRes = ({ searchResult, title }) => {
   };
 
   if (searchResult.length === 0) {
-    return <h3 style={{ textAlign: 'center' }}>No beauty products found</h3>;
+    return (
+      <h3 style={{ textAlign: 'center' }} ref={ref}>
+        No beauty products found
+      </h3>
+    );
   }
 
   return (
-    <section className={classes.root}>
+    <section className={classes.root} ref={ref}>
       <h2 className={indexClasses.sectionTitle}>{title}</h2>
       <div className={classes.cardWrapper}>
         {searchResult
@@ -41,7 +45,7 @@ export const SearchRes = ({ searchResult, title }) => {
       )}
     </section>
   );
-};
+});
 
 SearchRes.propTypes = {
   searchResult: PropTypes.array,
