@@ -60,17 +60,6 @@ const footerStyles = () => ({
     },
   },
 
-  signUpTextField: {
-    width: '100%',
-    fontSize: '1.25rem',
-    border: 'none',
-    color: '#8C8C8C',
-    borderBottom: '2px solid #8C8C8C',
-    '&:focus-visible': {
-      outline: 'none',
-      borderBottom: '2px solid #000F08',
-    },
-  },
   signUpButton: {
     border: 'none',
     fontSize: '1.25rem',
@@ -78,6 +67,7 @@ const footerStyles = () => ({
     cursor: 'pointer',
     position: 'absolute',
     left: '100%',
+    bottom: 0,
     transform: 'translateX(-100%)',
     '@media (max-width: 800px)': {
       left: 'calc(100% - 16px)',

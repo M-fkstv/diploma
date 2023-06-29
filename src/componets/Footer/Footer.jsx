@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { FormControl, Input, InputLabel } from '@mui/material';
+
 import { useSubscriptionMutation } from '../../services/subscribeApi';
-import Input from '@mui/material/Input';
+
+import { FooterContacts } from './FooterContacts';
 
 import { useFooterStyles } from './footer.styles';
-import { FooterContacts } from './FooterContacts';
-import { TextField } from '@mui/material';
+import { useButtonStyles } from '../Button/Button.styles';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
   const classes = useFooterStyles();
+  const buttonClasses = useButtonStyles();
 
   const [subscription] = useSubscriptionMutation();
 
@@ -30,24 +33,20 @@ export const Footer = () => {
         ) : (
           <div className={classes.signUp}>
             <form onSubmit={handleSubscription}>
-              <input
-                name="email"
-                type="email"
-                placeholder="Your email address"
-                className={classes.signUpTextField}
-              />
-              <button className={classes.signUpButton}>JOIN</button>
-              <TextField type="email" label="Standard" variant="standard" />
+              <FormControl
+                sx={{ padding: 0, width: '100%' }}
+                variant="standard">
+                <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="footer-email">
+                  Your email address
+                </InputLabel>
+                <Input fullWidth id="footer-email" type="email" name="email" />
+              </FormControl>
+              <button className={buttonClasses.signUpButton}>JOIN</button>
             </form>
           </div>
         )}
       </div>
-      <Input
-        type="email"
-        label="Your email address"
-        name="email"
-        className={classes.signUpTextField}
-      />
+
       <div className={classes.body}>
         {/*<ul>*/}
         {/*  <li>*/}

@@ -141,6 +141,19 @@ const buttonStyles = (theme) => ({
     },
   },
 
+  signUpButton: {
+    border: 'none',
+    fontSize: '1.25rem',
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    left: '100%',
+    bottom: 0,
+    transform: 'translateX(-100%)',
+    '@media (max-width: 800px)': {
+      left: 'calc(100% - 16px)',
+    },
+  },
+
   closeButton: {
     margin: 0,
     border: 0,
