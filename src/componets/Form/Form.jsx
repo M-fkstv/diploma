@@ -1,54 +1,80 @@
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import { useFormStyles } from './Form.styles';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button';
 import { useButtonStyles } from '../Button/Button.styles';
+import {
+  FormControl,
+  InputAdornment,
+  InputLabel,
+  Input,
+  TextField,
+} from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 export const Form = ({ title, onSubmit }) => {
   const firstNameId = useId();
   const lastNameId = useId();
   const emailId = useId();
-  const passwordId = useId();
+  // const passwordId = useId();
   const checkBoxId = useId();
   const classes = useFormStyles();
   const btnClasses = useButtonStyles();
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <form onSubmit={onSubmit} className={classes.form}>
-      {/*<label htmlFor={firstNameId}>First name</label>*/}
-      <input
-        className={classes.input}
-        id={firstNameId}
-        type="text"
-        name="First name"
-        placeholder="First name"
-      />
-      {/*<label htmlFor={lastNameId}>Last name</label>*/}
+      <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
+        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="First name">
+          First name
+        </InputLabel>
+        <Input fullWidth id="First name" type="text" name="First name" />
+      </FormControl>
 
-      <input
-        className={classes.input}
-        id={lastNameId}
-        type="text"
-        name="Last name"
-        placeholder="Last name"
-      />
-      {/*<label htmlFor={emailId}>email</label>*/}
-      <input
-        className={classes.input}
-        id={emailId}
-        name="email"
-        type="email"
-        placeholder="Email"
-      />
+      <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
+        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="Last name">
+          Last name
+        </InputLabel>
+        <Input fullWidth id="Last name" type="text" name="Last name" />
+      </FormControl>
 
-      {/*<label htmlFor={passwordId}>Password</label>*/}
-      <input
-        className={classes.input}
-        id={passwordId}
-        name="password"
-        type="password"
-        placeholder="Password"
-      />
+      <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
+        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="Email">
+          Email
+        </InputLabel>
+        <Input fullWidth id="email" type="email" name="email" />
+      </FormControl>
+
+      <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
+        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="password">
+          Password
+        </InputLabel>
+        <Input
+          fullWidth
+          name="password"
+          id="password"
+          type={showPassword ? 'text' : 'password'}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end">
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          }
+        />
+      </FormControl>
 
       <div className={classes.checkboxWrapper}>
         <input

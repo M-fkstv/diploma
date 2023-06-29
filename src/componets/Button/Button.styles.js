@@ -5,6 +5,8 @@ const buttonStyles = (theme) => ({
     color: '#fff',
     backgroundColor: '#000000',
     minWidth: '50%',
+    width: '50%',
+    margin: '0 auto',
     fontSize: '1.5rem',
     padding: '10px 20px',
     '&:hover': {

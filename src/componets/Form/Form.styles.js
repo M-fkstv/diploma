@@ -15,7 +15,7 @@ const formStyles = () => ({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#ffffff',
-    width: '60%',
+    width: '50%',
     margin: '50px auto 50px auto',
     padding: '80px 100px',
     '@media (901px <= width <= 1200px)': {
@@ -62,8 +62,8 @@ const formStyles = () => ({
   closeButton: {
     margin: 0,
     border: 0,
-    width: 35,
-    height: 35,
+    width: 30,
+    height: 30,
     position: 'relative',
     backgroundColor: 'transparent',
     cursor: 'pointer',

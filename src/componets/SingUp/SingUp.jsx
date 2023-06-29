@@ -20,7 +20,8 @@ export const SingUp = () => {
     const formData = new FormData(event.target);
     const email = formData.get('email');
     const password = formData.get('password');
-
+    console.log(email, password);
+    debugger;
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -44,8 +45,7 @@ export const SingUp = () => {
           <h1 className={classes.title}>Create account</h1>
           <Button
             className={classes.closeButton}
-            onClick={() => navigate('/')}
-          ></Button>
+            onClick={() => navigate('/')}></Button>
         </div>
         <Form title="Regirster" onSubmit={handleRegister} />
         <p className={classes.descr}>

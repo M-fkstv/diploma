@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useSubscriptionMutation } from '../../services/subscribeApi';
+import Input from '@mui/material/Input';
 
 import { useFooterStyles } from './footer.styles';
 import { FooterContacts } from './FooterContacts';
+import { TextField } from '@mui/material';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
@@ -30,16 +32,22 @@ export const Footer = () => {
             <form onSubmit={handleSubscription}>
               <input
                 name="email"
-                type="text"
+                type="email"
                 placeholder="Your email address"
                 className={classes.signUpTextField}
               />
               <button className={classes.signUpButton}>JOIN</button>
+              <TextField type="email" label="Standard" variant="standard" />
             </form>
           </div>
         )}
       </div>
-
+      <Input
+        type="email"
+        label="Your email address"
+        name="email"
+        className={classes.signUpTextField}
+      />
       <div className={classes.body}>
         {/*<ul>*/}
         {/*  <li>*/}
