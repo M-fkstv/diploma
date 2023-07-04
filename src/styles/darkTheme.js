@@ -5,7 +5,7 @@ export const darkTheme = {
     primary: {
       mainText: `${generalBlack}`,
       sectionTitleText: `${generalBlack}`,
-      mainBtn: `${generalBlue}`,
+      mainBtn: `${generalBlack}`,
       active: `${generalBlueActive}`,
       backgroundColor: '#66686d',
     },

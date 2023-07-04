@@ -10,7 +10,7 @@ export const lightTheme = {
     primary: {
       mainText: `${generalWhite}`,
       sectionTitleText: `${generalWhite}`,
-      mainBtn: `${generalBlue}`,
+      mainBtn: `${generalBlack}`,
       active: `${generalBlueActive}`,
       backgroundColor: '#eaf0f9',
     },

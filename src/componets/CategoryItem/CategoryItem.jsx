@@ -33,7 +33,7 @@ export const CategoryItem = (item) => {
   };
   return (
     <figure className={classes.itemWrapper}>
-      <Link to={`item/:${item.id}`} state={item}>
+      <Link to={`/item/${item.id}`} state={item}>
         <img
           className={classes.examplesIcon}
           id={item.id}
@@ -52,8 +52,7 @@ export const CategoryItem = (item) => {
       <IconButton
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
-        onClick={handleAddToFavorites}
-      >
+        onClick={handleAddToFavorites}>
         <FavoriteBorderIcon sx={{ fontSize: 40 }} />
       </IconButton>
       <figcaption>

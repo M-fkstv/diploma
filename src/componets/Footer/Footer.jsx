@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, Input, InputLabel } from '@mui/material';
+import { Button, FormControl, Input, InputLabel } from '@mui/material';
 
 import { useSubscriptionMutation } from '../../services/subscribeApi';
 
@@ -7,18 +7,20 @@ import { FooterContacts } from './FooterContacts';
 
 import { useFooterStyles } from './footer.styles';
 import { useButtonStyles } from '../Button/Button.styles';
+import { useTheme } from 'react-jss';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
-
+  const theme = useTheme();
   const classes = useFooterStyles();
-  const buttonClasses = useButtonStyles();
+  const buttonClasses = useButtonStyles(theme);
 
   const [subscription] = useSubscriptionMutation();
 
   const handleSubscription = async (e) => {
     e.preventDefault();
     const userEmail = new FormData(e.target).get('email');
+    console.log(userEmail);
     const response =
       userEmail && (await subscription({ email: userEmail }).unwrap());
     setResponse(response.message);
@@ -42,7 +44,13 @@ export const Footer = () => {
                 </InputLabel>
                 <Input fullWidth id="footer-email" type="email" name="email" />
               </FormControl>
-              <button className={buttonClasses.signUpButton}>JOIN</button>
+              {/*<button className={buttonClasses.signUpButton}>JOIN</button>*/}
+              <Button
+                type="submit"
+                variant="text"
+                className={buttonClasses.signUpButton}>
+                JOIN
+              </Button>
             </form>
           </div>
         )}

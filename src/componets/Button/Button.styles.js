@@ -95,7 +95,7 @@ const buttonStyles = (theme) => ({
 
   wishlistButton: {
     position: 'absolute',
-    top: '2%',
+    top: 0,
     left: '81%',
     backgroundColor: 'transparent',
     border: 0,
@@ -149,8 +149,10 @@ const buttonStyles = (theme) => ({
     border: 'none',
     fontSize: '1.25rem',
     backgroundColor: 'transparent',
+    color: '#000',
     position: 'absolute',
     left: '100%',
+    top: 20,
     bottom: 0,
     transform: 'translateX(-100%)',
     '@media (max-width: 800px)': {
