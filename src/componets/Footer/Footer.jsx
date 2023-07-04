@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormControl, Input, InputLabel } from '@mui/material';
 
 import { useSubscriptionMutation } from '../../services/subscribeApi';
@@ -10,6 +10,7 @@ import { useButtonStyles } from '../Button/Button.styles';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
+
   const classes = useFooterStyles();
   const buttonClasses = useButtonStyles();
 
@@ -22,7 +23,7 @@ export const Footer = () => {
       userEmail && (await subscription({ email: userEmail }).unwrap());
     setResponse(response.message);
   };
-
+  // TODO: error msg from error response "Invalid value" for input
   return (
     <footer className={classes.root}>
       <div className={classes.header}>

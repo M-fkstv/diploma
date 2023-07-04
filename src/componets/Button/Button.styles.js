@@ -20,6 +20,10 @@ const buttonStyles = (theme) => ({
     '@media (320px <= width <= 600px)': {
       fontSize: '1rem',
     },
+    '&[disabled]': {
+      opacity: 0.2,
+      cursor: 'not-allowed',
+    },
   },
 
   showMoreButton: {

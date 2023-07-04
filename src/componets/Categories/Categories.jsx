@@ -9,10 +9,16 @@ import { setCategory } from '../../store/slices/category.slice';
 
 import { useCategoriesStyles } from './Categories.styles';
 import { useIndexStyles } from '../../../index.styles';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import './slider.css';
+import 'swiper/css/pagination';
+import { Keyboard, Pagination } from 'swiper';
 
 export const Categories = () => {
   const dispatch = useDispatch();
   const { data = [], isSuccess } = useGetSalesQuery();
+
+  const isSmallScreen = window.innerWidth < 1200;
 
   const result = (e) => {
     if (isSuccess) {
@@ -30,19 +36,61 @@ export const Categories = () => {
     <article className={classes.root}>
       <h2 className={indexClasses.sectionTitle}>Shop by the Category</h2>
       <section className={classes.wrapper}>
-        {categoriesConfig.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className={classes.card}
-              onClick={result}
-              id={item.title}
-            >
-              <Icon id={item.id} className={classes.icon} />
-              <p className={classes.subtitle}>{item.title}</p>
-            </div>
-          );
-        })}
+        {isSmallScreen ? (
+          <>
+            <Swiper
+              modules={[Pagination, Keyboard]}
+              loop={true}
+              spaceBetween={10}
+              pagination={{ clickable: true }}
+              slidesPerView={2}
+              breakpoints={{
+                // 0: {
+                //   slidesPerView: 1,
+                // },
+                540: {
+                  slidesPerView: 3,
+                },
+                920: {
+                  slidesPerView: 4,
+                },
+                1200: {
+                  slidesPerView: 5,
+                },
+              }}
+              keyboard={{
+                enabled: true,
+                onlyInViewport: false,
+              }}>
+              {categoriesConfig.map((item, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <div
+                      className={classes.card}
+                      onClick={result}
+                      id={item.title}>
+                      <Icon id={item.id} className={classes.icon} />
+                      <p className={classes.subtitle}>{item.title}</p>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </>
+        ) : (
+          categoriesConfig.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={classes.card}
+                onClick={result}
+                id={item.title}>
+                <Icon id={item.id} className={classes.icon} />
+                <p className={classes.subtitle}>{item.title}</p>
+              </div>
+            );
+          })
+        )}
       </section>
       {/*{state.length !== 0 && (*/}
       {/*  <section className={classes.root}>*/}

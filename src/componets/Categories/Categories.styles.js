@@ -5,6 +5,7 @@ export const categoriesStyles = {
     marginTop: 80,
     marginBottom: 90,
     textAlign: 'center',
+    overflow: 'hidden',
     '&:has(h2)': {
       fontSize: 32,
       fontWeight: 500,
@@ -17,13 +18,14 @@ export const categoriesStyles = {
     gap: 10,
     maxWidth: 1240,
     width: ' calc(100% / 14 * 12)',
+    // width: '1240px',
     justifyContent: 'space-between',
     '@media (max-width: 1200px)': {
-      width: ' calc(100% / 14 * 9)',
-    },
-    '@media (max-width: 600px)': {
       width: ' calc(100% / 14 * 12)',
     },
+    // '@media (max-width: 600px)': {
+    //   width: ' calc(100% / 14 * 12)',
+    // },
   },
 
   card: {
@@ -45,14 +47,14 @@ export const categoriesStyles = {
 
   icon: {
     margin: 0,
-    maxWidth: 50,
+    width: 50,
     aspectRatio: '1/1',
     objectFit: 'contain',
-    '@media (max-width: 800px)': {
-      maxWidth: 40,
+    '@media (max-width: 960px)': {
+      width: 40,
     },
     '@media (max-width: 360px)': {
-      maxWidth: 32,
+      width: 32,
     },
   },
 

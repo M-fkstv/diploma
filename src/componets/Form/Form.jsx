@@ -3,24 +3,19 @@ import { useFormStyles } from './Form.styles';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button';
 import { useButtonStyles } from '../Button/Button.styles';
-import {
-  FormControl,
-  InputAdornment,
-  InputLabel,
-  Input,
-  TextField,
-} from '@mui/material';
+import { FormControl, InputAdornment, InputLabel, Input } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 export const Form = ({ title, onSubmit }) => {
-  const firstNameId = useId();
-  const lastNameId = useId();
-  const emailId = useId();
-  // const passwordId = useId();
   const checkBoxId = useId();
   const classes = useFormStyles();
   const btnClasses = useButtonStyles();
+
+  const [checked, setChecked] = useState(false);
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -78,6 +73,8 @@ export const Form = ({ title, onSubmit }) => {
 
       <div className={classes.checkboxWrapper}>
         <input
+          checked={checked}
+          onChange={handleCheck}
           id={checkBoxId}
           name="checkBox"
           type="checkbox"
@@ -93,7 +90,7 @@ export const Form = ({ title, onSubmit }) => {
         <Link to="#">Privacy Policy</Link>
       </p>
 
-      <Button title={title} className={btnClasses.formButton} />
+      <Button dis={!checked} title={title} className={btnClasses.formButton} />
     </form>
   );
 };
