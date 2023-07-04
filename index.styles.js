@@ -20,6 +20,7 @@ const indexStyles = () => ({
     },
     a: {
       textDecoration: 'none',
+      color: 'inherit',
     },
     ul: {
       paddingTop: 20,
