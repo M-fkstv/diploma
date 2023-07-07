@@ -16,24 +16,25 @@ import { useSliderStyles } from './slider.styles';
 
 export const Slider = ({ className, data }) => {
   const sliderClasses = useSliderStyles();
-  const [activeNext, setActiveNext] = useState(true);
-  const [activePrev, setActivePrev] = useState(true);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [totalSlides, setTotalSlides] = useState(1);
+  const [slidesPerView, setSlidesPerView] = useState(0);
 
   return (
     <>
       <SliderButton
         className={
-          activePrev
-            ? sliderClasses.buttonPrev
-            : sliderClasses.swiperButtonDisabled
+          activeSlide === 0
+            ? sliderClasses.swiperButtonDisabled
+            : sliderClasses.buttonPrev
         }
         id={'prevEl'}
       />
       <SliderButton
         className={
-          activeNext
-            ? sliderClasses.buttonNext
-            : sliderClasses.swiperButtonDisabled
+          activeSlide === totalSlides - slidesPerView
+            ? sliderClasses.swiperButtonDisabled
+            : sliderClasses.buttonNext
         }
         id={'nextEl'}
       />
@@ -42,23 +43,17 @@ export const Slider = ({ className, data }) => {
         modules={[Navigation, Keyboard]}
         keyboard={{
           enabled: true,
-          onlyInViewport: false,
+          onlyInViewport: true,
         }}
         loop={false}
         spaceBetween={16}
         slidesPerView={2}
-        // onInit={() => setActivePrev(false)}
-        onSlideChange={() => setActiveNext(true)}
-        onReachEnd={() => setActiveNext(false)} // TODO: hide navagation
-        onReachBeginning={() => setActivePrev(false)}
-        watchOverflow
+        onSlideChange={(swiper) => {
+          setActiveSlide(swiper.activeIndex);
+          setSlidesPerView(() => swiper.params.slidesPerView);
+          setTotalSlides(swiper.slides.length);
+        }}
         breakpoints={{
-          // 0: {
-          //   slidesPerView: 1,
-          // },
-          // 640: {
-          //   slidesPerView: 2,
-          // },
           800: {
             slidesPerView: 3,
           },
