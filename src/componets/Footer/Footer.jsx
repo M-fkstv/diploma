@@ -38,7 +38,8 @@ export const Footer = () => {
             <form onSubmit={handleSubscription}>
               <FormControl
                 sx={{ padding: 0, width: '100%' }}
-                variant="standard">
+                variant="standard"
+              >
                 <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="footer-email">
                   Your email address
                 </InputLabel>
@@ -48,7 +49,8 @@ export const Footer = () => {
               <Button
                 type="submit"
                 variant="text"
-                className={buttonClasses.signUpButton}>
+                className={buttonClasses.signUpButton}
+              >
                 JOIN
               </Button>
             </form>

@@ -4,6 +4,8 @@ const formStyles = () => ({
   bcg: {
     backgroundColor: '#BDBDBD',
     display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
     height: '100%',
     '@media (301px <= width <= 900px)': {
@@ -15,11 +17,11 @@ const formStyles = () => ({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#ffffff',
-    width: '50%',
-    margin: '50px auto 50px auto',
+    width: '40%',
+    marginBlock: '50px',
     padding: '80px 100px',
     '@media (901px <= width <= 1200px)': {
-      width: '80%',
+      width: '70%',
       padding: '40px 60px',
       margin: '100px auto 100px auto',
     },
@@ -37,12 +39,12 @@ const formStyles = () => ({
   },
   title: {
     margin: '0 auto 60px 0',
-    fontSize: '1.75rem',
+    fontSize: '1.5rem',
     '@media (600px <= width <= 1200px)': {
-      fontSize: '1.5rem',
+      fontSize: '1.25rem',
     },
     '@media (320px <= width <= 600px)': {
-      fontSize: '1.15rem',
+      fontSize: '1rem',
     },
   },
   form: {
@@ -50,7 +52,7 @@ const formStyles = () => ({
     display: 'flex',
     flexDirection: 'column',
     rowGap: 30,
-    fontSize: '1.25rem',
+    fontSize: '1.15rem',
     '@media (600px <= width <= 1200px)': {
       fontSize: '1rem',
     },
@@ -88,7 +90,7 @@ const formStyles = () => ({
   input: {
     margin: 0,
     height: 35,
-    fontSize: '1.25rem',
+    fontSize: '1.15rem',
     border: 'none',
     borderBottom: '2px solid #D8D8D8',
     '&:focus-visible': {
@@ -105,7 +107,7 @@ const formStyles = () => ({
   checkboxWrapper: {
     margin: 0,
     display: 'flex',
-    fontSize: '1.25rem',
+    fontSize: '1.15rem',
     '& label': {
       marginLeft: 15,
     },

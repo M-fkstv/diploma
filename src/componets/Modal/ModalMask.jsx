@@ -6,12 +6,14 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { useModalMaskStyles } from './ModalMask.styles';
 import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import { useGetSalesQuery } from '../../services/getSales';
 import { setSearchResult } from '../../store/slices/search.slice';
-import { useLocation, useNavigate } from 'react-router-dom';
+
 import { useButtonStyles } from '../Button/Button.styles';
+import { useModalMaskStyles } from './ModalMask.styles';
 
 export const ModalMask = forwardRef((_, ref) => {
   const [showModal, setShowModal] = useState(false);

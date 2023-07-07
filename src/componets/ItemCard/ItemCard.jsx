@@ -13,6 +13,7 @@ import { setFavorites } from '../../store/slices/favorites.slice';
 import { Button } from '../Button';
 import { useButtonStyles } from '../Button/Button.styles';
 import { useItemCardStyles } from './ItemCard.styles';
+import { useWideScreen } from '../../constants/isWideScreen';
 
 export const discount = '"25%"';
 
@@ -22,6 +23,7 @@ export const ItemCard = (item) => {
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
+  const isWideScreen = useWideScreen();
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
@@ -93,7 +95,7 @@ export const ItemCard = (item) => {
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
         onClick={handleAddToFavorites}>
-        <FavoriteBorderIcon sx={{ fontSize: 40 }} />
+        <FavoriteBorderIcon sx={{ fontSize: isWideScreen ? 40 : 24 }} />
       </IconButton>
       <figcaption className={classes.description}>
         <p className={classes.descriptionText}>

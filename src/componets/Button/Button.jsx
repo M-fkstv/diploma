@@ -6,7 +6,8 @@ export const Button = ({ className, title, onClick, children, dis }) => {
       disabled={dis}
       type="submit"
       className={className}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {title}
       {children}
     </button>

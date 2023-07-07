@@ -7,9 +7,9 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../../store/slices/user.slice';
 
 import { Form } from '../Form';
+import { Button } from '../Button';
 
 import { useFormStyles } from '../Form/Form.styles';
-import { Button } from '../Button';
 
 export const LogIn = () => {
   const dispatch = useDispatch();
@@ -45,8 +45,7 @@ export const LogIn = () => {
           <h1 className={classes.title}>SING IN</h1>
           <Button
             className={classes.closeButton}
-            onClick={() => navigate('/')}
-          ></Button>
+            onClick={() => navigate('/')}></Button>
         </div>
 
         <Form title="Sing up" onSubmit={handleLogin} />

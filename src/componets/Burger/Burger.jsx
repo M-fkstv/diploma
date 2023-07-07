@@ -1,6 +1,4 @@
-import * as React from 'react';
-import { useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -10,27 +8,28 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-// import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { Icon } from '../Icons/Icon';
-import { useButtonStyles } from '../Button/Button.styles';
-import { useIconStyles } from '../Icons/Icon/Icon.style';
-import { useTheme } from 'react-jss';
-import { useHeaderStyles } from '../Header/Header.styles';
-import { ModalMask } from '../Modal';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '../Button';
 import { removeUser } from '../../store/slices/user.slice';
 import { clearBag } from '../../store/slices/bag.slice';
 import { clearCategory } from '../../store/slices/category.slice';
 import { clearFavorites } from '../../store/slices/favorites.slice';
 import { clearSearchResult } from '../../store/slices/search.slice';
 
+import { useTheme } from 'react-jss';
+import { useButtonStyles } from '../Button/Button.styles';
+import { useIconStyles } from '../Icons/Icon/Icon.style';
+import { useHeaderStyles } from '../Header/Header.styles';
+
+import { Icon } from '../Icons/Icon';
+import { ModalMask } from '../Modal';
+import { Button } from '../Button';
+
 const drawerWidth = 240;
-// const navItems = [(<Link to="/" className={classes.asideLink}>NEW ARRIVALS</Link>),]
 function DrawerAppBar(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const classes = useHeaderStyles(theme);
   const buttonClasses = useButtonStyles(theme);
@@ -85,8 +84,7 @@ function DrawerAppBar(props) {
           <ListItemButton sx={{ textAlign: 'center' }}>
             <button
               onClick={() => searchRef.current.open()}
-              className={buttonClasses.asideBtn}
-            >
+              className={buttonClasses.asideBtn}>
               <Icon id="#search" className={iconClasses.root} />
               <span>SEARCH</span>
             </button>
@@ -115,8 +113,7 @@ function DrawerAppBar(props) {
             <Button
               onClick={logOut}
               className={buttonClasses.asideBtn}
-              title={email ? 'SING OUT' : 'SIGN IN'}
-            ></Button>
+              title={email ? 'SING OUT' : 'SIGN IN'}></Button>
           </ListItemButton>
         </ListItem>
       </List>
@@ -133,8 +130,7 @@ function DrawerAppBar(props) {
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
-        sx={{ mr: 2, display: { lg: 'none' } }}
-      >
+        sx={{ mr: 2, display: { lg: 'none' } }}>
         <Icon id="#burger" className={iconClasses.burgerIcon} />
       </IconButton>
 
@@ -153,8 +149,7 @@ function DrawerAppBar(props) {
               boxSizing: 'border-box',
               width: drawerWidth,
             },
-          }}
-        >
+          }}>
           {drawer}
         </Drawer>
       </Box>

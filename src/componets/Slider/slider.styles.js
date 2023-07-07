@@ -6,13 +6,17 @@ export const useSliderStyles = createUseStyles({
     position: 'relative',
     margin: ' 0 auto',
     maxWidth: 1240,
-    '@media (0px <= width <= 800px)': {
-      // margin: '0 24px',
-      maxWidth: 850,
+    '@media (0px <= width <= 320px)': {
+      maxWidth: 280,
     },
-    '@media (801px <= width <= 1200px)': {
-      // margin: '0 24px',
-      maxWidth: 960,
+    '@media (321px <= width <= 426px)': {
+      maxWidth: 340,
+    },
+    '@media (426px <= width <= 768px)': {
+      maxWidth: 650,
+    },
+    '@media (769px <= width <= 1200px)': {
+      maxWidth: 850,
     },
   },
   buttonNext: {
@@ -33,8 +37,10 @@ export const useSliderStyles = createUseStyles({
     '&:active': {
       scale: 1.1,
     },
-    '@media (max-width: 360px)': {
-      left: '97%',
+    '@media (max-width: 768px)': {
+      left: '100%',
+      height: 30,
+      width: 30,
     },
 
     '&:before': {
@@ -49,10 +55,14 @@ export const useSliderStyles = createUseStyles({
       left: '35%',
       zIndex: 2,
       transform: 'rotate(235deg) skew(20deg)',
+      '@media (max-width: 768px)': {
+        height: 7,
+        width: 7,
+      },
     },
-    swiperButtonDisabled: {
-      display: 'none',
-    },
+    // swiperButtonDisabled: {
+    //   display: 'none',
+    // },
   },
 
   buttonPrev: {
@@ -73,8 +83,10 @@ export const useSliderStyles = createUseStyles({
     '&:active': {
       scale: 1.1,
     },
-    '@media (max-width: 360px)': {
-      left: '3%',
+    '@media (max-width: 768px)': {
+      left: 0,
+      height: 30,
+      width: 30,
     },
 
     '&:before': {
@@ -89,6 +101,10 @@ export const useSliderStyles = createUseStyles({
       left: '40%',
       zIndex: 100,
       transform: 'rotate(55deg) skew(20deg)',
+      '@media (max-width: 768px)': {
+        height: 7,
+        width: 7,
+      },
     },
     // composes: '$swiper-button-disabled',
   },

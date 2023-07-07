@@ -28,28 +28,28 @@ export const Form = ({ title, onSubmit }) => {
   return (
     <form onSubmit={onSubmit} className={classes.form}>
       <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
-        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="First name">
+        <InputLabel sx={{ fontSize: '1rem' }} htmlFor="First name">
           First name
         </InputLabel>
         <Input fullWidth id="First name" type="text" name="First name" />
       </FormControl>
 
       <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
-        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="Last name">
+        <InputLabel sx={{ fontSize: '1rem' }} htmlFor="Last name">
           Last name
         </InputLabel>
         <Input fullWidth id="Last name" type="text" name="Last name" />
       </FormControl>
 
       <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
-        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="Email">
+        <InputLabel sx={{ fontSize: '1rem' }} htmlFor="Email">
           Email
         </InputLabel>
         <Input fullWidth id="email" type="email" name="email" />
       </FormControl>
 
       <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
-        <InputLabel sx={{ fontSize: '1.25rem' }} htmlFor="password">
+        <InputLabel sx={{ fontSize: '1rem' }} htmlFor="password">
           Password
         </InputLabel>
         <Input
@@ -63,7 +63,8 @@ export const Form = ({ title, onSubmit }) => {
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
-                edge="end">
+                edge="end"
+              >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>

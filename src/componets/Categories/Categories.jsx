@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/pagination';
+import { Keyboard, Pagination } from 'swiper';
+
 import { Icon } from '../Icons/Icon';
 import { categoriesConfig } from './Categories.config';
 
@@ -9,10 +13,6 @@ import { setCategory } from '../../store/slices/category.slice';
 
 import { useCategoriesStyles } from './Categories.styles';
 import { useIndexStyles } from '../../../index.styles';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import './slider.css';
-import 'swiper/css/pagination';
-import { Keyboard, Pagination } from 'swiper';
 
 export const Categories = () => {
   const dispatch = useDispatch();
@@ -45,9 +45,6 @@ export const Categories = () => {
               pagination={{ clickable: true }}
               slidesPerView={2}
               breakpoints={{
-                // 0: {
-                //   slidesPerView: 1,
-                // },
                 540: {
                   slidesPerView: 3,
                 },

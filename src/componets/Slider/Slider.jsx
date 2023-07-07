@@ -1,17 +1,18 @@
 // Import Swiper React components
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState } from 'react';
 import { Keyboard, Navigation } from 'swiper';
 import PropTypes from 'prop-types';
 
 import { ItemCard } from '../ItemCard';
+import { SliderButton } from '../SliderButton';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { SliderButton } from '../SliderButton';
+
 import { useSliderStyles } from './slider.styles';
-import { useState } from 'react';
 
 export const Slider = ({ className, data }) => {
   const sliderClasses = useSliderStyles();
@@ -46,7 +47,7 @@ export const Slider = ({ className, data }) => {
         loop={false}
         spaceBetween={16}
         slidesPerView={2}
-        onInit={() => setActivePrev(false)}
+        // onInit={() => setActivePrev(false)}
         onSlideChange={() => setActiveNext(true)}
         onReachEnd={() => setActiveNext(false)} // TODO: hide navagation
         onReachBeginning={() => setActivePrev(false)}

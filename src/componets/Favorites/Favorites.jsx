@@ -15,6 +15,8 @@ import { dollar } from '../../constants/toDollar';
 import { useFavoritesStyles } from './Favorites.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { useIndexStyles } from '../../../index.styles';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 
 export const Favorites = () => {
   const classes = useFavoritesStyles();
@@ -36,14 +38,14 @@ export const Favorites = () => {
   };
   const handleAddToBag = (item) => {
     // throw new Error('error');
-    if (!bagState.find((bagItem) => bagItem.id === item.id)) {
-      dispatch(setBag(item));
-      dispatch(
-        removeFavorites(
-          favoritesState.filter((bagItem) => bagItem.id !== item.id),
-        ),
-      );
-    }
+    // if (!bagState.find((bagItem) => bagItem.id === item.id)) {
+    dispatch(setBag(item));
+    dispatch(
+      removeFavorites(
+        favoritesState.filter((bagItem) => bagItem.id !== item.id),
+      ),
+    );
+    // }
   };
   const handleAllToBag = () => {
     favoritesState.forEach((item) => {
@@ -65,13 +67,27 @@ export const Favorites = () => {
               <Link
                 to={`/item/id:${item.id}`}
                 state={item}
-                style={{ display: 'contents' }}>
-                <img
-                  className={classes.cardImage}
-                  id={item.id}
-                  src={item.images[0]}
-                  alt={item.name}
-                />
+                style={{ display: 'contents' }}
+              >
+                <Swiper
+                  modules={[Pagination]}
+                  slidesPerView={1}
+                  pagination={true}
+                  style={{ width: '50%', margin: 0 }}
+                >
+                  {item.images.map((img, index) => {
+                    return (
+                      <SwiperSlide key={index}>
+                        <img
+                          className={classes.cardImage}
+                          id={item.id}
+                          src={item.images[index]}
+                          alt={item.name}
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
               </Link>
 
               <div className={classes.cardInfo}>
@@ -92,24 +108,27 @@ export const Favorites = () => {
                           <option
                             style={{ fontSize: '1rem' }}
                             key={index}
-                            value={item}>
+                            value={item}
+                          >
                             {item}
                           </option>
                         );
                       })}
                   </select>
                 </p>
-                <p>quantity</p>
+                {/*<p>quantity</p>*/}
               </div>
             </div>
             <button
               className={classes.removeButton}
-              onClick={() => handleDeleteFromFavorites(item)}>
+              onClick={() => handleDeleteFromFavorites(item)}
+            >
               REMOVE
             </button>
             <button
               className={classes.addToBag}
-              onClick={() => handleAddToBag(item)}>
+              onClick={() => handleAddToBag(item)}
+            >
               ADD TO BAG
             </button>
             <hr />

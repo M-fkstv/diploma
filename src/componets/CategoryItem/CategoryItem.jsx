@@ -12,6 +12,7 @@ import { dollar } from '../../constants/toDollar';
 import { useCategoryItemStyles } from './CategoryItem.styles';
 import IconButton from '@mui/material/IconButton';
 import { useButtonStyles } from '../Button/Button.styles';
+import { useWideScreen } from '../../constants/isWideScreen';
 
 export const CategoryItem = (item) => {
   const classes = useCategoryItemStyles();
@@ -19,6 +20,8 @@ export const CategoryItem = (item) => {
   const initFavState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
+  const isWideScreen = useWideScreen();
+
   const handleAddToFavorites = (e) => {
     e.preventDefault();
     if (!initFavState.find((favItem) => favItem.id === item.id)) {
@@ -53,7 +56,7 @@ export const CategoryItem = (item) => {
         aria-label="add to favorites"
         className={buttonClasses.wishlistButton}
         onClick={handleAddToFavorites}>
-        <FavoriteBorderIcon sx={{ fontSize: 40 }} />
+        <FavoriteBorderIcon sx={{ fontSize: isWideScreen ? 40 : 24 }} />
       </IconButton>
       <figcaption>
         <p className={classes.price}>{dollar.format(item.price.value / 100)}</p>

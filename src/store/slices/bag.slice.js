@@ -7,6 +7,17 @@ export const bagSlice = createSlice({
   reducers: {
     setBag(state, action) {
       return [...state, action.payload];
+      // const newState = [...state].map((item) => {
+      //   return { ...item, quant: 1 };
+      // });
+      // const duplicate = newState.find((item) => item.id === action.payload.id);
+      // debugger;
+      // return [
+      //   ...newState,
+      //   duplicate
+      //     ? { ...action.payload, quant: duplicate.quant + 1 }
+      //     : { ...action.payload, quant: 1 },
+      // ];
     },
     removeBag(state, action) {
       return [...action.payload];

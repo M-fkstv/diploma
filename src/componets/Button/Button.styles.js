@@ -33,6 +33,15 @@ const buttonStyles = (theme) => ({
     fontSize: '1.5rem',
     padding: '10px 20px',
     marginTop: 40,
+    '@media (max-width: 768px)': {
+      width: 200,
+      fontSize: '1rem',
+    },
+    '@media (max-width: 425px)': {
+      width: 150,
+      fontSize: '0.75rem',
+    },
+
     '&:hover': {
       backgroundColor: '#000',
       color: '#fff',
@@ -96,7 +105,7 @@ const buttonStyles = (theme) => ({
   wishlistButton: {
     position: 'absolute',
     top: 0,
-    left: '81%',
+    right: 0,
     backgroundColor: 'transparent',
     border: 0,
     color: '#ffffff',
@@ -122,6 +131,11 @@ const buttonStyles = (theme) => ({
     // },
     '&:active': {
       scale: 0.99,
+    },
+    '@media (max-width: 426px)': {
+      width: 100,
+      height: 30,
+      fontSize: '0.75rem',
     },
   },
   instaBlockBtn: {

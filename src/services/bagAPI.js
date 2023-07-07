@@ -8,6 +8,7 @@ export const bagAPI = createApi({
     sendOrder: builder.mutation({
       query: (body) => ({
         url: 'cart',
+        content_type: 'application/json',
         method: 'POST',
         body,
       }),

@@ -1,13 +1,27 @@
 import { createUseStyles } from 'react-jss';
+import mask from '../../styles/mask (1).jpg';
+import mobileMask from '../../styles/brand-video-bg-placeholder.jpg';
 
 const topSectionStyles = () => ({
-  // wrapper: {
-  //   //TODO fucking image
-  //   background: 'url("../../../public/mask.png") no-repeat, fixed',
-  //   backgroundSize: 'cover',
-  //   minHeight: '100vh',
-  //   height: 900,
-  // },
+  wrapper: {
+    //TODO fucking image
+    // background: `url(${mask}) no-repeat, fixed`,
+    // backgroundSize: 'cover',
+    // minHeight: '100vh',
+    // height: 900,
+    position: 'relative',
+  },
+
+  img: {
+    background: `url(${mask}) no-repeat, fixed`,
+    backgroundSize: 'cover',
+    minHeight: '100vh',
+    height: 900,
+    '@media (max-width: 860px)': {
+      background: `url(${mobileMask}) no-repeat, fixed`,
+      backgroundSize: 'cover',
+    },
+  },
 
   content: {
     position: 'absolute',
@@ -18,6 +32,9 @@ const topSectionStyles = () => ({
       fontSize: '2.5rem',
       fontWeight: 700,
       marginBottom: 30,
+      '@media (max-width: 860px)': {
+        fontSize: '2rem',
+      },
     },
     '& p': {
       color: '#fff',

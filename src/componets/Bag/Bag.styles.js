@@ -31,7 +31,7 @@ const bagStyles = () => ({
     margin: '20px auto 100px auto',
   },
   cardImage: {
-    width: 'calc(100% / 14 * 7)',
+    width: '100%',
     margin: 0,
   },
   cardInfo: {

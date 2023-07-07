@@ -30,14 +30,8 @@ const favoritesStyles = () => ({
     margin: '20px auto 100px auto',
   },
   cardImage: {
-    width: 'calc(100% / 14 * 7)',
+    width: '100%',
     margin: 0,
-    '@media (max-width: 800px)': {
-      width: '50%',
-    },
-    '@media (max-width: 600px)': {
-      width: '70%',
-    },
   },
   cardInfo: {
     marginLeft: 20,

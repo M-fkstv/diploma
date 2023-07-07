@@ -22,9 +22,8 @@ export const FullItemCard = () => {
 
   const handleAddToBag = (e) => {
     e.preventDefault();
-    if (!initBagState.find((bagItem) => bagItem.id === state.id)) {
-      dispatch(setBag(state));
-    }
+
+    dispatch(setBag(state));
   };
 
   const handleAddToFavorites = (e) => {
@@ -61,8 +60,7 @@ export const FullItemCard = () => {
           <p>COLOR</p>
           <div
             className={classes.colorValue}
-            style={{ backgroundColor: state.color.hex }}
-          ></div>
+            style={{ backgroundColor: state.color.hex }}></div>
         </div>
 
         <div className={classes.sizeInfo}>

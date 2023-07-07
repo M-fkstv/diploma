@@ -76,9 +76,21 @@ export const categoriesStyles = {
   cardWrapper: {
     maxWidth: 1240,
     rowGap: 16,
+    columnGap: 16,
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',
+    '@media (max-width: 1024px)': {
+      width: 850,
+    },
+    '@media (max-width: 768px)': {
+      width: 'min(650px, calc(100% - 16px))',
+      columnGap: 10,
+    },
+    '@media (max-width: 430px)': {
+      width: 'min(350px, calc(100% - 16px))',
+      columnGap: 10,
+    },
   },
 };
 
