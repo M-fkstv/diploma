@@ -138,7 +138,7 @@ const buttonStyles = (theme) => ({
       fontSize: '0.75rem',
     },
   },
-  instaBlockBtn: {
+  instaBlockBtnNext: {
     backgroundColor: 'transparent',
     border: 'none',
     fontSize: '1rem',
@@ -153,10 +153,34 @@ const buttonStyles = (theme) => ({
       borderRight: 0,
       borderTop: 0,
       top: 6,
-      left: 70,
+      // left: 70,
       zIndex: 2,
       transform: 'rotate(235deg) skew(20deg)',
     },
+  },
+  instaBlockBtnPrev: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '1rem',
+    marginLeft: 24,
+    position: 'relative',
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      height: 6,
+      width: 6,
+      border: '2px solid #000',
+      borderLeft: 0,
+      borderBottom: 0,
+      top: 6,
+      // left: 70,
+      zIndex: 2,
+      transform: 'rotate(235deg) skew(20deg)',
+    },
+  },
+
+  displayNone: {
+    display: 'none',
   },
 
   signUpButton: {

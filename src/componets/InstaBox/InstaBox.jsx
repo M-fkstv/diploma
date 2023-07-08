@@ -24,15 +24,32 @@ export const InstaBox = () => {
       }
     };
 
+    const decr = () => {
+      if (data[0].id !== instaBoxData[0].id) {
+        setStart((prevState) => prevState - 1);
+        setEnd((prevState) => prevState - 1);
+      }
+    };
+
     // const instaBoxData = isSuccess ? data.slice(start, end) : localStoreageData; // for problems whith intermet
     return (
       <section className={classes.root}>
-        <div>
+        <div style={{ display: 'inline-flex' }}>
           <Link to="#">Shop in instagramm</Link>
+          <span style={{ marginLeft: '16px' }}>shop</span>
+          <Button
+            onClick={decr}
+            // title="shop"
+            className={
+              start === 0
+                ? buttonClasses.displayNone
+                : buttonClasses.instaBlockBtnPrev
+            }
+          />
           <Button
             onClick={incr}
-            title="shop"
-            className={buttonClasses.instaBlockBtn}
+            // title="shop"
+            className={buttonClasses.instaBlockBtnNext}
           />
         </div>
         <div className={classes.parent}>
