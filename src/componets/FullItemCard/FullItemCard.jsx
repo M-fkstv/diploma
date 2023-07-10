@@ -13,12 +13,11 @@ import { dollar } from '../../constants/toDollar';
 
 import { useFullItemCardStyles } from './FullItemCard.styles';
 
-export const FullItemCard = () => {
+const FullItemCard = () => {
   const classes = useFullItemCardStyles();
   const { state } = useLocation();
   const dispatch = useDispatch();
   const initFavState = useSelector((state) => state.favorites);
-  const initBagState = useSelector((state) => state.bag);
 
   const handleAddToBag = (e) => {
     e.preventDefault();
@@ -104,3 +103,5 @@ export const FullItemCard = () => {
     </div>
   );
 };
+
+export default FullItemCard;

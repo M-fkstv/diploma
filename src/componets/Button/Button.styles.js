@@ -114,6 +114,18 @@ const buttonStyles = (theme) => ({
     },
   },
 
+  wishlistButton1: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    backgroundColor: 'transparent',
+    border: 0,
+    color: '#f50606',
+    '&:hover  ': {
+      backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    },
+  },
+
   hoverButton: {
     position: 'absolute',
     top: '50%',
@@ -124,11 +136,6 @@ const buttonStyles = (theme) => ({
     height: 48,
     textAlign: 'center',
     fontSize: '1rem',
-    // opacity: 0,
-    // '&:hover': {
-    //   opacity: 1,
-    //   transition: 'opacity 200ms linear',
-    // },
     '&:active': {
       scale: 0.99,
     },
@@ -153,7 +160,6 @@ const buttonStyles = (theme) => ({
       borderRight: 0,
       borderTop: 0,
       top: 6,
-      // left: 70,
       zIndex: 2,
       transform: 'rotate(235deg) skew(20deg)',
     },
@@ -173,7 +179,6 @@ const buttonStyles = (theme) => ({
       borderLeft: 0,
       borderBottom: 0,
       top: 6,
-      // left: 70,
       zIndex: 2,
       transform: 'rotate(235deg) skew(20deg)',
     },

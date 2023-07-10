@@ -132,6 +132,7 @@ const formStyles = () => ({
     color: 'gray',
     '& a': {
       textDecoration: 'underline',
+      color: 'initial',
     },
     '@media (600px <= width <= 1200px)': {
       marginBottom: 30,

@@ -4,37 +4,39 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
-
-import { HomePage } from '../pages/HomePage';
-import { LogInPage } from '../pages/LogInPage';
-import { RegisterPage } from '../pages/RegisterPage';
 import { Layout } from '../componets/Layout';
 import { Loader } from '../componets/Loader';
 import { ErrorBoundary } from '../componets/ErrorBoundaryRouter.js';
-import { BagPage } from '../pages/BagPage';
-import { FavoritesPage } from '../pages/FavoritesPage';
 import { App } from '../componets/App';
 import { Wrapper } from '../componets/Wrapper';
+import { Bag } from '../componets/Bag';
+import { Favorites } from '../componets/Favorites';
+import { LogIn } from '../componets/LogIn';
+import { SingUp } from '../componets/SingUp';
 
-const CardPage = lazy(() => import('../pages/CardPage'));
+const FullItemCard = lazy(() =>
+  import('../componets/FullItemCard/FullItemCard'),
+);
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorBoundary />}>
       <Route element={<Wrapper />}>
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route index element={<App />} />
-        <Route path="/bag" element={<BagPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route
-          path="/item/:id"
-          element={
-            <Suspense fallback={<Loader />}>
-              <CardPage />
-            </Suspense>
-          }
-        />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<SingUp />} />
+        <Route element={<Layout />}>
+          <Route index element={<App />} />
+          <Route path="/bag" element={<Bag />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route
+            path="/item/:id"
+            element={
+              <Suspense fallback={<Loader />}>
+                <FullItemCard />
+              </Suspense>
+            }
+          />
+        </Route>
       </Route>
     </Route>,
   ),

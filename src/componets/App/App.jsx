@@ -22,7 +22,6 @@ export const App = () => {
 
   return (
     <>
-      <Header />
       <main>
         <TopSection />
         {searchResult && (
@@ -38,10 +37,6 @@ export const App = () => {
         <Sales />
         <InstaBox />
       </main>
-
-      <Footer />
-      {/*<SimpleAccordion />*/}
-      {/*<MyComponent />*/}
     </>
   );
 };

@@ -42,7 +42,7 @@ export const Form = ({ title, onSubmit }) => {
       </FormControl>
 
       <FormControl sx={{ padding: 0, width: '100%' }} variant="standard">
-        <InputLabel sx={{ fontSize: '1rem' }} htmlFor="Email">
+        <InputLabel sx={{ fontSize: '1rem' }} htmlFor="email">
           Email
         </InputLabel>
         <Input fullWidth id="email" type="email" name="email" />
@@ -63,8 +63,7 @@ export const Form = ({ title, onSubmit }) => {
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
-                edge="end"
-              >
+                edge="end">
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>

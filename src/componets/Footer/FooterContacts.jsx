@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -7,8 +6,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import { Icon } from '../Icons/Icon';
+
 import { Link } from 'react-router-dom';
+
+import { Icon } from '../Icons/Icon';
+
 import { useFooterStyles } from './footer.styles';
 import { useIconStyles } from '../Icons/Icon/Icon.style';
 import { useIndexStyles } from '../../../index.styles';
@@ -29,8 +31,7 @@ const MyAccordion = ({ id, title, content }) => {
       expanded={isWideScreen ? true : expanded}
       onChange={handleExpand}
       disableGutters
-      id={id}
-    >
+      id={id}>
       <AccordionSummary
         style={{
           flexDirection: 'row-reverse',
@@ -40,8 +41,7 @@ const MyAccordion = ({ id, title, content }) => {
           isWideScreen ? null : expanded ? <RemoveIcon /> : <AddIcon />
         }
         aria-controls={`${id}-content`}
-        id={`${id}-header`}
-      >
+        id={`${id}-header`}>
         <Typography variant="h5" className={classes.subTitle}>
           {title}
         </Typography>
@@ -49,8 +49,7 @@ const MyAccordion = ({ id, title, content }) => {
       <AccordionDetails
         style={{
           paddingLeft: isWideScreen ? 0 : '35px',
-        }}
-      >
+        }}>
         <Typography>{content}</Typography>
       </AccordionDetails>
     </Accordion>
@@ -87,15 +86,15 @@ export const FooterContacts = () => {
     {
       title: 'FOLLOW US',
       content: [
-        <Link to="#">
+        <Link to="/">
           <Icon id="#odnoklassniky" className={iconClasses.footerIcon} />
           ODNOCLASSNIKI
         </Link>,
-        <Link to="#">
+        <Link to="/">
           <Icon id="#facebook" className={iconClasses.footerIcon} />
           FACEBOOK
         </Link>,
-        <Link to="#">
+        <Link to="/">
           <Icon id="#instagramm" className={iconClasses.footerIcon} />
           INSTAGRAMM
         </Link>,

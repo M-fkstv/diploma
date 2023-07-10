@@ -114,6 +114,7 @@ const favoritesStyles = () => ({
     minWidth: 300,
     '@media (max-width: 800px)': {
       fontSize: '1rem',
+      minWidth: 250,
     },
   },
   amount: {
