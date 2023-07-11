@@ -14,23 +14,15 @@ export const categoriesStyles = {
   wrapper: {
     backgroundColor: 'white',
     display: 'flex',
-    flexWrap: 'wrap',
     gap: 10,
-    maxWidth: 1240,
     width: ' calc(100% / 14 * 12)',
-    // width: '1240px',
     justifyContent: 'space-between',
-    '@media (max-width: 1200px)': {
-      width: ' calc(100% / 14 * 12)',
-    },
-    // '@media (max-width: 600px)': {
-    //   width: ' calc(100% / 14 * 12)',
-    // },
+    overflowX: 'auto',
   },
 
   card: {
     display: 'flex',
-    width: 196,
+    minWidth: 196,
     height: 90,
     paddingLeft: 16,
     backgroundColor: '#EDE7F0',
@@ -38,10 +30,10 @@ export const categoriesStyles = {
     cursor: 'pointer',
 
     '@media (max-width: 800px)': {
-      width: 150,
+      minWidth: 150,
     },
     '@media (max-width: 360px)': {
-      width: 140,
+      minWidth: 140,
     },
   },
 
