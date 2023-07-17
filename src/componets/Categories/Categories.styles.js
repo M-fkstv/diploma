@@ -14,23 +14,15 @@ export const categoriesStyles = {
   wrapper: {
     backgroundColor: 'white',
     display: 'flex',
-    flexWrap: 'wrap',
     gap: 10,
-    maxWidth: 1240,
     width: ' calc(100% / 14 * 12)',
-    // width: '1240px',
     justifyContent: 'space-between',
-    '@media (max-width: 1200px)': {
-      width: ' calc(100% / 14 * 12)',
-    },
-    // '@media (max-width: 600px)': {
-    //   width: ' calc(100% / 14 * 12)',
-    // },
+    overflowX: 'auto',
   },
 
   card: {
     display: 'flex',
-    width: 196,
+    minWidth: 196,
     height: 90,
     paddingLeft: 16,
     backgroundColor: '#EDE7F0',
@@ -38,10 +30,10 @@ export const categoriesStyles = {
     cursor: 'pointer',
 
     '@media (max-width: 800px)': {
-      width: 150,
+      minWidth: 150,
     },
     '@media (max-width: 360px)': {
-      width: 140,
+      minWidth: 140,
     },
   },
 
@@ -76,9 +68,21 @@ export const categoriesStyles = {
   cardWrapper: {
     maxWidth: 1240,
     rowGap: 16,
+    columnGap: 16,
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-evenly',
+    '@media (max-width: 1024px)': {
+      width: 850,
+    },
+    '@media (max-width: 768px)': {
+      width: 'min(650px, calc(100% - 16px))',
+      columnGap: 10,
+    },
+    '@media (max-width: 430px)': {
+      width: 'min(350px, calc(100% - 16px))',
+      columnGap: 10,
+    },
   },
 };
 

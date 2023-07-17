@@ -8,11 +8,15 @@ import { Link } from 'react-router-dom';
 import { dollar } from '../../constants/toDollar';
 
 import { setBag } from '../../store/slices/bag.slice';
-import { setFavorites } from '../../store/slices/favorites.slice';
+import {
+  removeFavorites,
+  setFavorites,
+} from '../../store/slices/favorites.slice';
 
 import { Button } from '../Button';
 import { useButtonStyles } from '../Button/Button.styles';
 import { useItemCardStyles } from './ItemCard.styles';
+import { useWideScreen } from '../../constants/isWideScreen';
 
 export const discount = '"25%"';
 
@@ -20,58 +24,34 @@ export const ItemCard = (item) => {
   const classes = useItemCardStyles();
   const buttonClasses = useButtonStyles();
   const initFavState = useSelector((state) => state.favorites);
-  const initBagState = useSelector((state) => state.bag);
+  const favoritesState = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
+  const isWideScreen = useWideScreen();
+
+  const isInFav = (id) => {
+    if (initFavState.find((favItem) => favItem.id === id)) {
+      return true;
+    }
+  };
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
     if (!initFavState.find((favItem) => favItem.id === item.id)) {
       dispatch(setFavorites(item));
+    } else {
+      const toDispatch = favoritesState.filter(
+        (favItem) => favItem.id !== item.id,
+      );
+      dispatch(removeFavorites(toDispatch));
     }
   };
 
   const handleAddToBag = (e) => {
     e.preventDefault();
-    if (!initBagState.find((bagItem) => bagItem.id === item.id)) {
-      dispatch(setBag(item));
-    }
+    dispatch(setBag(item));
   };
 
   return (
-    // <div className={classes.examplesIcons}>
-    //   <Link to={`item/:id=${item.id}`} state={item}>
-    //     <img
-    //       className={classes.examplesIcon}
-    //       id={item.id}
-    //       src={item.images[0]}
-    //       alt={item.name}
-    //     />{' '}
-    //     <div className={classes.hover}></div>
-    //   </Link>
-    //   <button className={buttonClasses.hoverButton} onClick={handleAddToBag}>
-    //     ADD TO BAG
-    //   </button>
-
-    //   <IconButton
-    //     aria-label="add to favorites"
-    //     className={buttonClasses.wishlistButton}
-    //     onClick={handleAddToFavorites}>
-    //     <Icon id="#like" className={iconClasses.like} />
-    //   </IconButton>
-    //   {/*<button className={classes.wishlistButton} onClick={addToFavorites}>*/}
-    //   {/*  /!*<Icon id="#like" className={iconClasses.like} />*!/*/}
-    //   {/*  <FavoriteBorderIcon fontSize="large" sx={{ fill: 'white' }} />*/}
-    //   {/*</button>*/}
-
-    //   <div className={classes.description}>
-    //     <p className={classes.descriptionText}>
-    //       {dollar.format(item.price.value / 100)}
-    //     </p>
-    //     <p className={classes.descriptionText}>
-    //       {dollar.format(Math.floor((item.price.value * 0.75) / 100))}
-    //     </p>
-    //   </div>
-    // </div>
     <figure className={classes.examplesIcons}>
       <Link to={`item/${item.id}`} state={item}>
         <img
@@ -91,9 +71,13 @@ export const ItemCard = (item) => {
 
       <IconButton
         aria-label="add to favorites"
-        className={buttonClasses.wishlistButton}
+        className={
+          isInFav(item.id)
+            ? buttonClasses.wishlistButton1
+            : buttonClasses.wishlistButton
+        }
         onClick={handleAddToFavorites}>
-        <FavoriteBorderIcon sx={{ fontSize: 40 }} />
+        <FavoriteBorderIcon sx={{ fontSize: isWideScreen ? 40 : 24 }} />
       </IconButton>
       <figcaption className={classes.description}>
         <p className={classes.descriptionText}>

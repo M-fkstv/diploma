@@ -33,6 +33,15 @@ const buttonStyles = (theme) => ({
     fontSize: '1.5rem',
     padding: '10px 20px',
     marginTop: 40,
+    '@media (max-width: 768px)': {
+      width: 200,
+      fontSize: '1rem',
+    },
+    '@media (max-width: 425px)': {
+      width: 150,
+      fontSize: '0.75rem',
+    },
+
     '&:hover': {
       backgroundColor: '#000',
       color: '#fff',
@@ -96,10 +105,22 @@ const buttonStyles = (theme) => ({
   wishlistButton: {
     position: 'absolute',
     top: 0,
-    left: '81%',
+    right: 0,
     backgroundColor: 'transparent',
     border: 0,
     color: '#ffffff',
+    '&:hover  ': {
+      backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    },
+  },
+
+  wishlistButton1: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    backgroundColor: 'transparent',
+    border: 0,
+    color: '#f50606',
     '&:hover  ': {
       backgroundColor: 'rgba(0, 0, 0, 0.25)',
     },
@@ -115,16 +136,16 @@ const buttonStyles = (theme) => ({
     height: 48,
     textAlign: 'center',
     fontSize: '1rem',
-    // opacity: 0,
-    // '&:hover': {
-    //   opacity: 1,
-    //   transition: 'opacity 200ms linear',
-    // },
     '&:active': {
       scale: 0.99,
     },
+    '@media (max-width: 426px)': {
+      width: 100,
+      height: 30,
+      fontSize: '0.75rem',
+    },
   },
-  instaBlockBtn: {
+  instaBlockBtnNext: {
     backgroundColor: 'transparent',
     border: 'none',
     fontSize: '1rem',
@@ -139,10 +160,32 @@ const buttonStyles = (theme) => ({
       borderRight: 0,
       borderTop: 0,
       top: 6,
-      left: 70,
       zIndex: 2,
       transform: 'rotate(235deg) skew(20deg)',
     },
+  },
+  instaBlockBtnPrev: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontSize: '1rem',
+    marginLeft: 24,
+    position: 'relative',
+    '&:after': {
+      content: '""',
+      position: 'absolute',
+      height: 6,
+      width: 6,
+      border: '2px solid #000',
+      borderLeft: 0,
+      borderBottom: 0,
+      top: 6,
+      zIndex: 2,
+      transform: 'rotate(235deg) skew(20deg)',
+    },
+  },
+
+  displayNone: {
+    display: 'none',
   },
 
   signUpButton: {

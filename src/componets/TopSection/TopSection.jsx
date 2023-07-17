@@ -1,15 +1,16 @@
 import React from 'react';
-import { useTopSectionStyles } from './TopSection.styles';
-import './TopSection.css';
+
 import { Button } from '../Button';
+
+import { useTopSectionStyles } from './TopSection.styles';
 import { useButtonStyles } from '../Button/Button.styles';
 
 export const TopSection = () => {
   const classes = useTopSectionStyles();
   const buttonClasses = useButtonStyles();
   return (
-    <div className="wrapper">
-      <div className="img"></div>
+    <div className={classes.wrapper}>
+      <div className={classes.img}></div>
       <div className={classes.content}>
         <h1>NEW COLLECTION</h1>
         <p>

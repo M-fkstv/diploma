@@ -5,26 +5,50 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import { Button } from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFavorites } from '../../store/slices/favorites.slice';
+import {
+  removeFavorites,
+  setFavorites,
+} from '../../store/slices/favorites.slice';
 import { setBag } from '../../store/slices/bag.slice';
 
 import { dollar } from '../../constants/toDollar';
 import { useCategoryItemStyles } from './CategoryItem.styles';
 import IconButton from '@mui/material/IconButton';
 import { useButtonStyles } from '../Button/Button.styles';
+import { useWideScreen } from '../../constants/isWideScreen';
 
 export const CategoryItem = (item) => {
   const classes = useCategoryItemStyles();
   const buttonClasses = useButtonStyles();
   const initFavState = useSelector((state) => state.favorites);
+  const favoritesState = useSelector((state) => state.favorites);
   const initBagState = useSelector((state) => state.bag);
   const dispatch = useDispatch();
+  const isWideScreen = useWideScreen();
+
+  const isInFav = (id) => {
+    if (initFavState.find((favItem) => favItem.id === id)) {
+      return true;
+    }
+  };
+
   const handleAddToFavorites = (e) => {
     e.preventDefault();
     if (!initFavState.find((favItem) => favItem.id === item.id)) {
       dispatch(setFavorites(item));
+    } else {
+      const toDispatch = favoritesState.filter(
+        (favItem) => favItem.id !== item.id,
+      );
+      dispatch(removeFavorites(toDispatch));
     }
   };
+  // const handleAddToFavorites = (e) => {
+  //   e.preventDefault();
+  //   if (!initFavState.find((favItem) => favItem.id === item.id)) {
+  //     dispatch(setFavorites(item));
+  //   }
+  // };
   const handleAddToBag = (e) => {
     e.preventDefault();
     if (!initBagState.find((bagItem) => bagItem.id === item.id)) {
@@ -51,9 +75,13 @@ export const CategoryItem = (item) => {
 
       <IconButton
         aria-label="add to favorites"
-        className={buttonClasses.wishlistButton}
+        className={
+          isInFav(item.id)
+            ? buttonClasses.wishlistButton1
+            : buttonClasses.wishlistButton
+        }
         onClick={handleAddToFavorites}>
-        <FavoriteBorderIcon sx={{ fontSize: 40 }} />
+        <FavoriteBorderIcon sx={{ fontSize: isWideScreen ? 40 : 24 }} />
       </IconButton>
       <figcaption>
         <p className={classes.price}>{dollar.format(item.price.value / 100)}</p>

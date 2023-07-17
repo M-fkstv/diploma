@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, FormControl, Input, InputLabel } from '@mui/material';
+import { useTheme } from 'react-jss';
 
 import { useSubscriptionMutation } from '../../services/subscribeApi';
 
@@ -7,7 +8,6 @@ import { FooterContacts } from './FooterContacts';
 
 import { useFooterStyles } from './footer.styles';
 import { useButtonStyles } from '../Button/Button.styles';
-import { useTheme } from 'react-jss';
 
 export const Footer = () => {
   const [response, setResponse] = useState('');
@@ -44,7 +44,6 @@ export const Footer = () => {
                 </InputLabel>
                 <Input fullWidth id="footer-email" type="email" name="email" />
               </FormControl>
-              {/*<button className={buttonClasses.signUpButton}>JOIN</button>*/}
               <Button
                 type="submit"
                 variant="text"
@@ -57,62 +56,6 @@ export const Footer = () => {
       </div>
 
       <div className={classes.body}>
-        {/*<ul>*/}
-        {/*  <li>*/}
-        {/*    <h3 className={classes.subTitle}>CUSTOMER SERVICE</h3>*/}
-        {/*  </li>*/}
-        {/*  <li>CONTACT</li>*/}
-        {/*  <li>TRACK ORDER</li>*/}
-        {/*  <li>DELIVERY & RETURN</li>*/}
-        {/*  <li>PAYMENT</li>*/}
-        {/*  <li>MAKE A RETURN</li>*/}
-        {/*  <li>FAQ</li>*/}
-        {/*</ul>*/}
-        {/*<ul>*/}
-        {/*  <li>*/}
-        {/*    <h3 className={classes.subTitle}>INFO</h3>*/}
-        {/*  </li>*/}
-        {/*  <li>GIFT VOUCHERS</li>*/}
-        {/*  <li>SIZE GUIDE</li>*/}
-        {/*  <li>CAREER AT MODNIKKY</li>*/}
-        {/*  <li>ABOUT US</li>*/}
-        {/*  <li>LEGAL POLICIES</li>*/}
-        {/*</ul>*/}
-        {/*<ul>*/}
-        {/*  <li>*/}
-        {/*    <h3 className={classes.subTitle}>FOLLOW US</h3>*/}
-        {/*  </li>*/}
-
-        {/*  <li>*/}
-        {/*    <Link to="#">*/}
-        {/*      <Icon id="#facebook" className={iconClasses.footerIcon} />{' '}*/}
-        {/*      FACEBOOK*/}
-        {/*    </Link>*/}
-        {/*  </li>*/}
-        {/*  <li>*/}
-        {/*    <Link to="#">*/}
-        {/*      <Icon id="#odnoklassniky" className={iconClasses.footerIcon} />{' '}*/}
-        {/*      ODNOCLASSNIKI*/}
-        {/*    </Link>*/}
-        {/*  </li>*/}
-        {/*  <li>*/}
-        {/*    <Link to="#">*/}
-        {/*      <Icon id="#instagramm" className={iconClasses.footerIcon} />{' '}*/}
-        {/*      INSTAGRAMM*/}
-        {/*    </Link>*/}
-        {/*  </li>*/}
-        {/*</ul>*/}
-        {/*<ul>*/}
-        {/*  <li>*/}
-        {/*    <h3 className={classes.subTitle}>CONTACT US</h3>*/}
-        {/*  </li>*/}
-        {/*  <li>hello@modnikky.com</li>*/}
-        {/*  <li>+7 910 832 26XX</li>*/}
-        {/*  <li>*/}
-        {/*    Visit us at Shalalaeva 23,*/}
-        {/*    <br /> Bologoe, Russia*/}
-        {/*  </li>*/}
-        {/*</ul>*/}
         <FooterContacts />
       </div>
     </footer>

@@ -7,9 +7,9 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { setUser } from '../../store/slices/user.slice';
 
 import { Form } from '../Form';
+import { Button } from '../Button';
 
 import { useFormStyles } from '../Form/Form.styles';
-import { Button } from '../Button';
 
 export const SingUp = () => {
   const dispatch = useDispatch();

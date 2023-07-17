@@ -31,7 +31,7 @@ const bagStyles = () => ({
     margin: '20px auto 100px auto',
   },
   cardImage: {
-    width: 'calc(100% / 14 * 7)',
+    width: '100%',
     margin: 0,
   },
   cardInfo: {
@@ -107,6 +107,7 @@ const bagStyles = () => ({
     minWidth: 300,
     '@media (max-width: 800px)': {
       fontSize: '1rem',
+      minWidth: 250,
     },
   },
   amount: {

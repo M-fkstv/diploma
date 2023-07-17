@@ -7,7 +7,7 @@ const footerStyles = () => ({
   },
   header: {
     textAlign: 'center',
-    '& $p': {
+    '& p': {
       marginBottom: 40,
       fontSize: '1rem',
     },
@@ -38,11 +38,11 @@ const footerStyles = () => ({
     '@media (max-width: 900px)': {
       flexDirection: 'column',
     },
-    '& $ul': {
+    '& ul': {
       paddingInlineStart: 0,
       marginLeft: 0,
     },
-    '& $li, $li a': {
+    '& li, li a': {
       fontSize: '1rem',
       color: '#000F08',
       marginBottom: 20,

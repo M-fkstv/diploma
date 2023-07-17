@@ -13,18 +13,16 @@ import { dollar } from '../../constants/toDollar';
 
 import { useFullItemCardStyles } from './FullItemCard.styles';
 
-export const FullItemCard = () => {
+const FullItemCard = () => {
   const classes = useFullItemCardStyles();
   const { state } = useLocation();
   const dispatch = useDispatch();
   const initFavState = useSelector((state) => state.favorites);
-  const initBagState = useSelector((state) => state.bag);
 
   const handleAddToBag = (e) => {
     e.preventDefault();
-    if (!initBagState.find((bagItem) => bagItem.id === state.id)) {
-      dispatch(setBag(state));
-    }
+
+    dispatch(setBag(state));
   };
 
   const handleAddToFavorites = (e) => {
@@ -61,8 +59,7 @@ export const FullItemCard = () => {
           <p>COLOR</p>
           <div
             className={classes.colorValue}
-            style={{ backgroundColor: state.color.hex }}
-          ></div>
+            style={{ backgroundColor: state.color.hex }}></div>
         </div>
 
         <div className={classes.sizeInfo}>
@@ -106,3 +103,5 @@ export const FullItemCard = () => {
     </div>
   );
 };
+
+export default FullItemCard;

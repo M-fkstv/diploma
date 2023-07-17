@@ -4,7 +4,7 @@ const accordionStyles = () => ({
   accordionWrapper: {},
 
   accordion: {
-    width: 300,
+    maxWidth: 300,
   },
 
   item: {
